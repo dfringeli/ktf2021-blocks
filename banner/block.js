@@ -1,5 +1,5 @@
 /*
-KTF2021 Banner
+    KTF2021 Banner
 */
 
 ( function( blocks, editor, i18n, element ) {
@@ -80,17 +80,17 @@ KTF2021 Banner
                                 onChange: onChangeColor
                             })
                     ]),
-                        el(
-                            RichText,
-                            {
-                                key: 'richtext',
-                                tagName: 'p',
-                                style: { textAlign: alignment },
-                                className: props.className,
-                                onChange: onChangeContent,
-                                value: content,
-                            }
-                        ),
+                el(
+                    RichText,
+                    {
+                        key: 'richtext',
+                        tagName: 'p',
+                        style: { textAlign: alignment },
+                        className: props.className,
+                        onChange: onChangeContent,
+                        value: content,
+                    }
+                ),
 			];
 		},
 
