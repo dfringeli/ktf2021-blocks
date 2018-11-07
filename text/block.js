@@ -10,6 +10,7 @@
     var BlockControls = editor.BlockControls;
     var InspectorControls = editor.InspectorControls;
     var ColorPalette = editor.ColorPalette;
+    var ToggleControl = wp.components.ToggleControl;
 
 	i18n.setLocaleData( window.ktf2021_blocks.localeData, 'ktf2021-blocks' );
 
@@ -36,6 +37,10 @@
             color: {
                 type: 'string',
                 default: 'white'
+            },
+            fadeIn: {
+                type: 'boolean',
+                default: true
             }
 		},
 
@@ -44,6 +49,7 @@
             var content = props.attributes.content;
             var alignment = props.attributes.alignment;
             var color = props.attributes.color;
+            var fadeIn = props.attributes.fadeIn;
 
             const colors = [ 
                 { name: 'Weiss', color: 'white' },
@@ -68,13 +74,17 @@
 				props.setAttributes( { color: newColor === undefined ? 'white' : newColor } );
 			}
 
+            function onChangeFadeIn( newFadeIn ) {
+				props.setAttributes( { fadeIn: newFadeIn === undefined ? true : newFadeIn } );
+			}
+
 			return [
                 el(
                     RichText,
                     {
                         key: 'richtext',
                         tagName: 'h2',
-                        style: { textAlign: alignment },
+                        style: { textAlign: 'center' },
                         className: props.className,
                         onChange: onChangeTitle,
                         value: title,
@@ -112,6 +122,12 @@
                                 value: color,
                                 colors: colors,
                                 onChange: onChangeColor
+                            }),
+                        el(ToggleControl,
+                            {
+                                checked: fadeIn,
+                                onChange: onChangeFadeIn,
+                                label: 'fade in effect'
                             })
                     ]),
 			];
@@ -119,7 +135,7 @@
 
 		save: function( props ) {
             return el( 'div', { className: 'ktf2021-container-' + props.attributes.color },
-                        el('div', { className: 'ktf2021-content ktf2021-reveal' },
+                        el('div', { className: props.attributes.fadeIn ? 'ktf2021-content ktf2021-reveal' : 'ktf2021-content' },
                             [
                                 el( RichText.Content,
                                     {
