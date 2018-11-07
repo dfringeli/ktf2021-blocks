@@ -12,3 +12,4 @@ function ktf2021_blocks_load_textdomain() {
 }
 
 include 'banner/block.php';
+include 'text/block.php';

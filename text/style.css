@@ -1,0 +1,22 @@
+.ktf2021-blocks-align-left {
+	text-align: left;
+}
+
+.ktf2021-blocks-align-center {
+	text-align: center;
+}
+
+.ktf2021-blocks-align-right {
+	text-align: right;
+}
+
+@media (min-width: 992px) {    
+	.ktf2021-text {
+		column-count: 1;
+	}
+}
+@media (min-width: 1200px) {
+	.ktf2021-text {
+		column-count: 2;
+	}
+ }
