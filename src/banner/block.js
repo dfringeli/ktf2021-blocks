@@ -130,7 +130,7 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 	save: function( props ) {
 		return (
 			<div className={`ktf2021-container-${ props.attributes.color }`}>
-				<div class={`ktf2021-content${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
+				<div className={`ktf2021-content${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
 					<RichText.Content
 						className={ `under-title ktf2021-blocks-align-${ props.attributes.alignment }` }
 						tagName="p"

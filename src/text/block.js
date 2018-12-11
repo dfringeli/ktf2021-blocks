@@ -176,7 +176,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 	save: function( props ) {
 		return (
 			<div className={`ktf2021-container-${ props.attributes.color }`}>
-				<div class={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
+				<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
 					<h2 className= {'ktf2021-text-title text-center'}>{props.attributes.title}</h2>
 					<RichText.Content
 						className={ `ktf2021-text ktf2021-blocks-align-${ props.attributes.alignment }` }
