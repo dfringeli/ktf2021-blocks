@@ -36,8 +36,6 @@ const getColumnsTemplate = ( columns ) => {
 	return times( columns, () => [ 'ktf2021/ktf2021-column' ] );
 };
 
-
-
 /**
  * Register: aa Gutenberg Block.
  *
