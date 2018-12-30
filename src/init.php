@@ -39,6 +39,8 @@ add_action( 'enqueue_block_assets', 'ktf2021_blocks_cgb_block_assets' );
  * `wp-blocks`: includes block type registration and related functions.
  * `wp-element`: includes the WordPress Element abstraction for describing the structure of your blocks.
  * `wp-i18n`: To internationalize the block's text.
+ * `wp-editor`: editor functionality
+ * `wp-components`: compontents from wordpress
  *
  * @since 1.0.0
  */
@@ -47,7 +49,7 @@ function ktf2021_blocks_cgb_editor_assets() {
 	wp_enqueue_script(
 		'ktf2021_blocks-cgb-block-js', // Handle.
 		plugins_url( '/dist/blocks.build.js', dirname( __FILE__ ) ), // Block.build.js: We register the block here. Built with Webpack.
-		array( 'wp-blocks', 'wp-i18n', 'wp-element' ), // Dependencies, defined above.
+		array( 'wp-blocks', 'wp-i18n', 'wp-element', 'wp-editor', 'wp-components' ), // Dependencies, defined above.
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.build.js' ), // Version: filemtime — Gets file modification time.
 		true // Enqueue the script in the footer.
 	);
@@ -72,7 +74,7 @@ function ktf2021_block_categories( $categories, $post ) {
         $categories,
         array(
             array(
-                'slug' => 'ktf2021',
+                'slug' => 'ktf2021-blocks',
                 'title' => __( 'KTF2021', 'ktf2021-blocks' )
             ),
         )
