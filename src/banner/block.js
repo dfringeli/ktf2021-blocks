@@ -38,7 +38,7 @@ const { Fragment } = wp.element;
 registerBlockType( 'ktf2021/ktf2021-banner', {
 	title: __( 'KTF2021 Banner' ),
 	icon: 'editor-quote',
-	category: 'common',
+	category: 'ktf2021-blocks',
 	keywords: [
 		__( 'ktf2021' ),
 		__( 'Banner' ),

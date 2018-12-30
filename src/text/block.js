@@ -39,7 +39,7 @@ const {
 registerBlockType( 'ktf2021/ktf2021-text', {
 	title: __( 'KTF2021 Text' ),
 	icon: 'editor-paragraph',
-	category: 'common',
+	category: 'ktf2021-blocks',
 	keywords: [
 		__( 'ktf2021' ),
 		__( 'Text' ),
@@ -91,7 +91,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 			fadeIn,
 		}, className } = props;
 
-		const colors = [ 
+		const colors = [
 			{ name: 'Weiss', color: 'white' },
 			{ name: 'Schwarz', color: 'black' },
 			{ name: 'Grün', color: 'green' },

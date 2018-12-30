@@ -52,7 +52,7 @@ const getColumnsTemplate = ( columns ) => {
 registerBlockType( 'ktf2021/ktf2021-columns', {
 	title: __( 'KTF2021 Spalten' ),
 	icon: 'editor-table',
-	category: 'layout',
+	category: 'ktf2021-blocks',
 	keywords: [
 		__( 'ktf2021' ),
 		__( 'Spalten' ),
