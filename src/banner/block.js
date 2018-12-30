@@ -17,7 +17,9 @@ const {
 	BlockControls,
 	InspectorControls,
 	ColorPalette } = wp.editor;
-const { ToggleControl } = wp.components;
+const { PanelBody,
+		ToggleControl } = wp.components;
+const { Fragment } = wp.element;
 
 
 /**
@@ -74,7 +76,7 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 			fadeIn,
 		}, className } = props;
 
-		const colors = [ 
+		const colors = [
 			{ name: 'Weiss', color: 'white' },
 			{ name: 'Schwarz', color: 'black' },
 			{ name: 'Grün', color: 'green' },
@@ -98,7 +100,7 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 		}
 
 		return (
-			<div className={ props.className }>
+			<Fragment>
 				<BlockControls>
 					<AlignmentToolbar value={ alignment } onChange={ onChangeAlignment } />
 				</BlockControls>
@@ -110,16 +112,18 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 					value={ content }
 				/>
 				<InspectorControls>
-					<ColorPalette
-						value={ color }
-						colors={ colors }
-						onChange={ onChangeColor } />
-					<ToggleControl
-						checked={ fadeIn }
-						onChange={ onChangeFadeIn }
-						label={ "fade in effect" } />
+					<PanelBody>
+						<ColorPalette
+							value={ color }
+							colors={ colors }
+							onChange={ onChangeColor } />
+						<ToggleControl
+							checked={ fadeIn }
+							onChange={ onChangeFadeIn }
+							label={ "fade in effect" } />
+					</PanelBody>
 				</InspectorControls>
-			</div>
+			</Fragment>
 		);
 	},
 
@@ -130,9 +134,10 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 	save: function( props ) {
 		return (
 			<div className={`ktf2021-container-${ props.attributes.color }`}>
-				<div className={`ktf2021-content${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
+				<div className={`ktf2021-content${ props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
 					<RichText.Content
-						className={ `under-title ktf2021-blocks-align-${ props.attributes.alignment }` }
+						className={ 'under-title' }
+						style={ { textAlign: props.attributes.alignment } }
 						tagName="p"
 						value={ props.attributes.content }
 					/>
