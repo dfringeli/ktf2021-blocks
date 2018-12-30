@@ -1,2 +1,34 @@
-@media (max-width: 992px){.ktf2021-text{-webkit-column-count:1 !important;column-count:1 !important}}
-.wp-block-ktf2021-ktf2021-columns ul{margin:0}
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+@media (max-width: 992px) {
+  .ktf2021-text {
+    -webkit-column-count: 1 !important;
+            column-count: 1 !important; } }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-ktf2021-ktf2021-columns ul {
+  margin: 0; }
