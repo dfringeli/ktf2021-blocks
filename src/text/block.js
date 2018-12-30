@@ -19,8 +19,10 @@ const {
 	InspectorControls,
 	ColorPalette } = wp.editor;
 const {
+	PanelBody,
 	ToggleControl,
 	RangeControl } = wp.components;
+const { Fragment } = wp.element;
 
 
 /**
@@ -123,7 +125,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 		}
 
 		return (
-			<div className={ props.className }>
+			<Fragment>
 				<BlockControls>
 					<AlignmentToolbar value={ alignment } onChange={ onChangeAlignment } />
 				</BlockControls>
@@ -142,26 +144,28 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 					placeholder={ "Text..." }
 				/>
 				<InspectorControls>
-					<ColorPalette
-						value={ color }
-						colors={ colors }
-						onChange={ onChangeColor }
-						label={ __( 'Hintergrundfarbe' ) }
-					/>
-					<ToggleControl
-						checked={ fadeIn }
-						onChange={ onChangeFadeIn }
-						label={ "fade in effect" }
-					/>
-					<RangeControl
-							label={ __( 'Spalten' ) }
-							value={ columns }
-							onChange={ onChangeColumns }
-							min={ 1 }
-							max={ 3 }
-					/>
+					<PanelBody>
+						<ColorPalette
+							value={ color }
+							colors={ colors }
+							onChange={ onChangeColor }
+							label={ __( 'Hintergrundfarbe' ) }
+						/>
+						<ToggleControl
+							checked={ fadeIn }
+							onChange={ onChangeFadeIn }
+							label={ "fade in effect" }
+						/>
+						<RangeControl
+								label={ __( 'Spalten' ) }
+								value={ columns }
+								onChange={ onChangeColumns }
+								min={ 1 }
+								max={ 3 }
+						/>
+					</PanelBody>
 				</InspectorControls>
-			</div>
+			</Fragment>
 		);
 	},
 
@@ -179,7 +183,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 				<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
 					<h2 className= {'ktf2021-text-title text-center'}>{props.attributes.title}</h2>
 					<RichText.Content
-						className={ `ktf2021-text ktf2021-blocks-align-${ props.attributes.alignment }` }
+						className={ `ktf2021-text text-${ props.attributes.alignment }` }
 						tagName='p'
 						style={ `column-count: ${ props.attributes.columns }` }
 						value={ props.attributes.content }

@@ -17,8 +17,9 @@ const {
 	BlockControls,
 	InspectorControls,
 	ColorPalette } = wp.editor;
-const { PanelBody,
-		ToggleControl } = wp.components;
+const {
+	PanelBody,
+	ToggleControl } = wp.components;
 const { Fragment } = wp.element;
 
 
@@ -136,8 +137,8 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 			<div className={`ktf2021-container-${ props.attributes.color }`}>
 				<div className={`ktf2021-content${ props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
 					<RichText.Content
-						className={ 'under-title' }
-						style={ { textAlign: props.attributes.alignment } }
+						className={ '' }
+						className={ `under-title text-${ props.attributes.alignment }` }
 						tagName="p"
 						value={ props.attributes.content }
 					/>
