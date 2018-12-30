@@ -63,3 +63,19 @@ function ktf2021_blocks_cgb_editor_assets() {
 
 // Hook: Editor assets.
 add_action( 'enqueue_block_editor_assets', 'ktf2021_blocks_cgb_editor_assets' );
+
+/**
+ * Add block category
+ */
+function ktf2021_block_categories( $categories, $post ) {
+    return array_merge(
+        $categories,
+        array(
+            array(
+                'slug' => 'ktf2021',
+                'title' => __( 'KTF2021', 'ktf2021-blocks' )
+            ),
+        )
+    );
+}
+add_filter( 'block_categories', 'ktf2021_block_categories', 10, 2 );
