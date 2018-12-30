@@ -63,7 +63,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 		},
 		alignment: {
 			type: 'string',
-			default: 'none',
+			default: 'left',
 		},
 		color: {
 			type: 'string',
@@ -113,7 +113,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 		}
 
 		function onChangeAlignment( newAlignment ) {
-			props.setAttributes( { alignment: newAlignment === undefined ? 'none' : newAlignment } );
+			props.setAttributes( { alignment: newAlignment === undefined ? 'left' : newAlignment } );
 		}
 
 		function onChangeColor( newColor ) {

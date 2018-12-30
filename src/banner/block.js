@@ -53,7 +53,7 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 		},
 		alignment: {
 			type: 'string',
-			default: 'none',
+			default: 'center',
 		},
 		color: {
 			type: 'string',
@@ -89,7 +89,7 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 		}
 
 		function onChangeAlignment( newAlignment ) {
-			props.setAttributes( { alignment: newAlignment === undefined ? 'none' : newAlignment } );
+			props.setAttributes( { alignment: newAlignment === undefined ? 'center' : newAlignment } );
 		}
 
 		function onChangeColor( newColor ) {
@@ -114,10 +114,12 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 				/>
 				<InspectorControls>
 					<PanelBody>
+						<h4>Farbe</h4>
 						<ColorPalette
 							value={ color }
 							colors={ colors }
 							onChange={ onChangeColor } />
+						<hr style={ { marginTop: '2.5em'} } />
 						<ToggleControl
 							checked={ fadeIn }
 							onChange={ onChangeFadeIn }
