@@ -134,7 +134,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			</InspectorControls>
 			<div className={className}>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
-						<div class="container-fluid">
+						<div class="container-fluid p-0">
 							<div class="row">
 								<InnerBlocks
 										template={ getColumnsTemplate( columns ) }
@@ -161,7 +161,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			<div className={props.className}>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
 					<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
-						<div class="container-fluid">
+						<div class="container-fluid p-0">
 							<div class="row">
 								<InnerBlocks.Content />
 							</div>
