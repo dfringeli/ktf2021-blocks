@@ -38,3 +38,30 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.ktf2021-post {
+  width: 250px;
+  padding: 8px;
+  margin: 8px;
+  background-color: white;
+  color: black; }
+  .ktf2021-post .ktf2021-post-image img {
+    height: 200px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover; }
+  .ktf2021-post .ktf2021-post-title {
+    margin-bottom: 0; }
+  .ktf2021-post .ktf2021-post-byline {
+    font-size: 0.8rem;
+    color: #5D5D5D;
+    margin-bottom: 0.5rem; }
+  .ktf2021-post .ktf2021-post-link {
+    color: rgba(0, 207, 255, 0.95);
+    font-weight: bold; }
+  .ktf2021-post a, .ktf2021-post a:visited {
+    color: inherit;
+    text-decoration: none; }
+  .ktf2021-post .ktf2021-post-link:hover,
+  .ktf2021-post a:hover {
+    color: navy;
+    text-decoration: none; }

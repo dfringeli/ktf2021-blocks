@@ -40,8 +40,6 @@ const {
 	PlainText
 } = wp.editor;
 
-const MAX_POSTS_COLUMNS = 4;
-
 class LatestPostsBlock extends Component {
 	constructor() {
 		super( ...arguments );
@@ -97,10 +95,9 @@ class LatestPostsBlock extends Component {
 
 	render() {
 		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
-		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, columns, order, orderBy, categories, postsToShow, readMoreText } = attributes;
+		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, categories, postsToShow, readMoreText } = attributes;
 
 		const colors = [
-			{ name: 'Weiss', color: 'white' },
 			{ name: 'Schwarz', color: 'black' },
 			{ name: 'Grün', color: 'green' },
 			{ name: 'Blau', color: 'blue' },
@@ -131,13 +128,6 @@ class LatestPostsBlock extends Component {
 						onOrderByChange={ ( value ) => setAttributes( { orderBy: value } ) }
 						onCategoryChange={ ( value ) => setAttributes( { categories: '' !== value ? value : undefined } ) }
 						onNumberOfItemsChange={ ( value ) => setAttributes( { postsToShow: value } ) }
-					/>
-					<RangeControl
-						label={ __( 'Spalten' ) }
-						value={ columns }
-						onChange={ ( value ) => setAttributes( { columns: value } ) }
-						min={ 2 }
-						max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
 					/>
 					<ToggleControl
 						label={ __( 'Display Featured Image' ) }

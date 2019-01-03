@@ -39,67 +39,54 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 
 			// Start the markup for the post
 			$list_items_markup .= sprintf(
-				'<article class="%1$s">',
+				'<div class="ktf2021-post d-flex flex-column %1$s">',
 				esc_attr( $post_thumb_class )
 			);
-
-			// Set the title for the posts
-			if ( isset( $attributes['title'] ) && $attributes['title'] && $post_thumb_id ) {
-				$list_items_markup .= sprintf(
-					'<h2>%1$s</h2>',
-					$attributes['title']
-				);
-			}
 
 			// Get the featured image
 			if ( isset( $attributes['displayPostImage'] ) && $attributes['displayPostImage'] && $post_thumb_id ) {
 
 				$list_items_markup .= sprintf(
-					'<div class="ab-block-post-grid-image"><a href="%1$s" rel="bookmark">%2$s</a></div>',
+					'<div class="ktf2021-post-image"><a href="%1$s"><img src="%2$s" /></a></div>',
 					esc_url( get_permalink( $post_id ) ),
-					wp_get_attachment_image( $post_thumb_id, $post_thumb_size )
+					wp_get_attachment_url( $post_thumb_id, array( '', '200' ) )
 				);
 			}
-
-			// Wrap the text content
-			$list_items_markup .= sprintf(
-				'<div class="ab-block-post-grid-text">'
-			);
 
 				// Get the post title
 				$title = get_the_title( $post_id );
 
 				if ( ! $title ) {
-					$title = __( 'Untitled', 'ktf2021-blocks' );
+					$title = __( 'KTF2021 News' );
 				}
 
 				$list_items_markup .= sprintf(
-					'<h2 class="ab-block-post-grid-title"><a href="%1$s" rel="bookmark">%2$s</a></h2>',
+					'<h3 class="ktf2021-post-title"><a href="%1$s">%2$s</a></h3>',
 					esc_url( get_permalink( $post_id ) ),
 					esc_html( $title )
 				);
 
-				// Wrap the byline content
+				// Wrap the byline for author and/or date
 				$list_items_markup .= sprintf(
-					'<div class="ab-block-post-grid-byline">'
+					'<div class="ktf2021-post-byline d-flex justify-content-between">'
 				);
 
-					// Get the post author
-					if ( isset( $attributes['displayPostAuthor'] ) && $attributes['displayPostAuthor'] ) {
-						$list_items_markup .= sprintf(
-							'<div class="ab-block-post-grid-author">%1$s</div>',
-							esc_html( get_the_author_meta( 'display_name', $post->post_author ) )
-						);
-					}
+				// Get the post author
+				if ( isset( $attributes['displayPostAuthor'] ) && $attributes['displayPostAuthor'] ) {
+					$list_items_markup .= sprintf(
+						'<div class="ktf2021-post-author">%1$s</div>',
+						esc_html( get_the_author_meta( 'display_name', $post->post_author ) )
+					);
+				}
 
-					// Get the post date
-					if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] ) {
-						$list_items_markup .= sprintf(
-							'<time datetime="%1$s" class="ab-block-post-grid-date">%2$s</time>',
-							esc_attr( get_the_date( 'c', $post_id ) ),
-							esc_html( get_the_date( '', $post_id ) )
-						);
-					}
+				// Get the post date
+				if ( isset( $attributes['displayPostDate'] ) && $attributes['displayPostDate'] ) {
+					$list_items_markup .= sprintf(
+						'<time datetime="%1$s" class="ab-block-post-grid-date">%2$s</time>',
+						esc_attr( get_the_date( 'c', $post_id ) ),
+						esc_html( get_the_date( '', $post_id ) )
+					);
+				}
 
 				// Close the byline content
 				$list_items_markup .= sprintf(
@@ -108,44 +95,40 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 
 				// Wrap the excerpt content
 				$list_items_markup .= sprintf(
-					'<div class="ab-block-post-grid-excerpt">'
+					'<div class="ktf2021-post-excerpt">'
 				);
 
-					// Get the excerpt
-					$excerpt = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $post_id, 'display' ) );
+				// Get the excerpt
+				$excerpt = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $post_id, 'display' ) );
 
-					if( empty( $excerpt ) ) {
-						$excerpt = apply_filters( 'the_excerpt', wp_trim_words( $post->post_content, 55 ) );
-					}
+				if( empty( $excerpt ) ) {
+					$excerpt = apply_filters( 'the_excerpt', wp_trim_words( $post->post_content, 55 ) );
+				}
 
-					if ( ! $excerpt ) {
-						$excerpt = null;
-					}
+				if ( ! $excerpt ) {
+					$excerpt = null;
+				}
 
-					if ( isset( $attributes['displayPostExcerpt'] ) && $attributes['displayPostExcerpt'] ) {
-						$list_items_markup .=  wp_kses_post( $excerpt );
-					}
-
-					if ( isset( $attributes['displayPostLink'] ) && $attributes['displayPostLink'] ) {
-						$list_items_markup .= sprintf(
-							'<p><a class="ab-block-post-grid-link ab-text-link" href="%1$s" rel="bookmark">%2$s</a></p>',
-							esc_url( get_permalink( $post_id ) ),
-							esc_html( $attributes['readMoreText'] )
-						);
-					}
+				if ( isset( $attributes['displayPostExcerpt'] ) && $attributes['displayPostExcerpt'] ) {
+					$list_items_markup .=  wp_kses_post( $excerpt );
+				}
 
 				// Close the excerpt content
 				$list_items_markup .= sprintf(
 					'</div>'
 				);
 
-			// Wrap the text content
-			$list_items_markup .= sprintf(
-				'</div>'
-			);
+				// Add read more link
+				if ( isset( $attributes['displayPostLink'] ) && $attributes['displayPostLink'] ) {
+					$list_items_markup .= sprintf(
+						'<div class="flex-fill d-flex justify-content-end"><a class="align-self-end" href="%1$s"><span class="ktf2021-post-link">%2$s</span></a></div>',
+						esc_url( get_permalink( $post_id ) ),
+						esc_html( $attributes['readMoreText'] )
+					);
+				}
 
 			// Close the markup for the post
-			$list_items_markup .= "</article>\n";
+			$list_items_markup .= "</div>\n";
 		}
 	}
 
@@ -162,11 +145,22 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 		$content_class .= ' ktf2021-reveal';
 	}
 
+	$postsTitle = '';
+
+	// Set the title for the posts
+	if ( isset( $attributes['title'] ) && $attributes['title'] ) {
+		$postsTitle .= sprintf(
+			'<h2>%1$s</h2>',
+			$attributes['title']
+		);
+	}
+
 	// Output the post markup
 	$block_content = sprintf(
-		'<div class="%1$s"><div class="%2$s">%3$s</div></div>',
-		esc_attr( $class ),
-		esc_attr( $content_class ),
+		'<div class="%1$s"><div class="%2$s"><div class="text-center">%3$s</div><div class="d-flex justify-content-center flex-wrap">%4$s</div></div></div>',
+		esc_attr( $class ),	// ktf-container
+		esc_attr( $content_class ),	// ktf-content
+		$postsTitle,
 		$list_items_markup
 	);
 
@@ -225,10 +219,6 @@ function ktf2021_blocks_register_block_core_latest_posts() {
 			'displayPostLink' => array(
 				'type' => 'boolean',
 				'default' => true,
-			),
-			'columns' => array(
-				'type' => 'number',
-				'default' => 2,
 			),
 			'order' => array(
 				'type' => 'string',
