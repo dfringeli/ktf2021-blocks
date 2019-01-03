@@ -20,4 +20,4 @@ if ( ! defined( 'ABSPATH' ) ) {
  */
 require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
 
-require_once plugin_dir_path( __FILE__ ) . 'src/posts/index.php';
+require_once plugin_dir_path( __FILE__ ) . 'src/posts/block.php';

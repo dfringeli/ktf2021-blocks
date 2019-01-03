@@ -15,4 +15,4 @@ import './text/block.js';
 import './columns/column.js'
 import './columns/block.js';
 
-import './posts/index.js'
+import './posts/block.js'

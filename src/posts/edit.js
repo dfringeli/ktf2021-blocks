@@ -36,8 +36,6 @@ const {
 
 const {
 	InspectorControls,
-	BlockAlignmentToolbar,
-	BlockControls,
 } = wp.editor;
 
 const MAX_POSTS_COLUMNS = 4;
@@ -97,19 +95,11 @@ class LatestPostsBlock extends Component {
 
 	render() {
 		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
-		const { displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage,displayPostLink, align, postLayout, columns, order, orderBy, categories, postsToShow, width, imageCrop, readMoreText } = attributes;
-
-		// Thumbnail options
-		const imageCropOptions = [
-			{ value: 'landscape', label: __( 'Landscape' ) },
-			{ value: 'square', label: __( 'Square' ) },
-		];
-
-		const isLandscape = imageCrop === 'landscape';
+		const { displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage,displayPostLink, columns, order, orderBy, categories, postsToShow, readMoreText } = attributes;
 
 		const inspectorControls = (
 			<InspectorControls>
-				<PanelBody title={ __( 'Post Grid Settings' ) }>
+				<PanelBody title={ __( 'Settings' ) }>
 					<QueryControls
 						{ ...{ order, orderBy } }
 						numberOfItems={ postsToShow }
@@ -120,28 +110,18 @@ class LatestPostsBlock extends Component {
 						onCategoryChange={ ( value ) => setAttributes( { categories: '' !== value ? value : undefined } ) }
 						onNumberOfItemsChange={ ( value ) => setAttributes( { postsToShow: value } ) }
 					/>
-					{ postLayout === 'grid' &&
-						<RangeControl
-							label={ __( 'Columns' ) }
-							value={ columns }
-							onChange={ ( value ) => setAttributes( { columns: value } ) }
-							min={ 2 }
-							max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
-						/>
-					}
+					<RangeControl
+						label={ __( 'Spalten' ) }
+						value={ columns }
+						onChange={ ( value ) => setAttributes( { columns: value } ) }
+						min={ 2 }
+						max={ ! hasPosts ? MAX_POSTS_COLUMNS : Math.min( MAX_POSTS_COLUMNS, latestPosts.length ) }
+					/>
 					<ToggleControl
 						label={ __( 'Display Featured Image' ) }
 						checked={ displayPostImage }
 						onChange={ this.toggleDisplayPostImage }
 					/>
-					{ displayPostImage &&
-						<SelectControl
-							label={ __( 'Featured Image Style' ) }
-							options={ imageCropOptions }
-							value={ imageCrop }
-							onChange={ ( value ) => this.props.setAttributes( { imageCrop: value } ) }
-						/>
-					}
 					<ToggleControl
 						label={ __( 'Display Post Author' ) }
 						checked={ displayPostAuthor }
@@ -170,7 +150,6 @@ class LatestPostsBlock extends Component {
 						onChange={ ( value ) => this.props.setAttributes( { readMoreText: value } ) }
 					/>
 					}
-
 				</PanelBody>
 			</InspectorControls>
 		);
@@ -182,7 +161,7 @@ class LatestPostsBlock extends Component {
 					{ inspectorControls }
 					<Placeholder
 						icon="admin-post"
-						label={ __( 'Atomic Blocks Post Grid' ) }
+						label={ __( 'KTF2021 Posts' ) }
 					>
 						{ ! Array.isArray( latestPosts ) ?
 							<Spinner /> :
@@ -198,48 +177,16 @@ class LatestPostsBlock extends Component {
 			latestPosts.slice( 0, postsToShow ) :
 			latestPosts;
 
-		const layoutControls = [
-			{
-				icon: 'grid-view',
-				title: __( 'Grid View' ),
-				onClick: () => setAttributes( { postLayout: 'grid' } ),
-				isActive: postLayout === 'grid',
-			},
-			{
-				icon: 'list-view',
-				title: __( 'List View' ),
-				onClick: () => setAttributes( { postLayout: 'list' } ),
-				isActive: postLayout === 'list',
-			},
-		];
-
 		return (
 			<Fragment>
 				{ inspectorControls }
-				<BlockControls>
-					<BlockAlignmentToolbar
-						value={ align }
-						onChange={ ( value ) => {
-							setAttributes( { align: value } );
-						} }
-						controls={ [ 'center', 'wide' ] }
-					/>
-					<Toolbar controls={ layoutControls } />
-				</BlockControls>
 				<div
 					className={ classnames(
 						this.props.className,
 						'ab-block-post-grid',
 					) }
 				>
-					<div
-						className={ classnames( {
-							'is-grid': postLayout === 'grid',
-							'is-list': postLayout === 'list',
-							[ `columns-${ columns }` ]: postLayout === 'grid',
-							'ab-post-grid-items' : 'ab-post-grid-items'
-						} ) }
-					>
+					<div>
 						{ displayPosts.map( ( post, i ) =>
 							<article
 								key={ i }
@@ -252,7 +199,7 @@ class LatestPostsBlock extends Component {
 										<div class="ab-block-post-grid-image">
 											<a href={ post.link } target="_blank" rel="bookmark">
 												<img
-													src={ isLandscape ? post.featured_image_src : post.featured_image_src_square }
+													src={ post.featured_image_src_square }
 													alt={ decodeEntities( post.title.rendered.trim() ) || __( '(Untitled)' ) }
 												/>
 											</a>
@@ -267,7 +214,7 @@ class LatestPostsBlock extends Component {
 
 									<div class="ab-block-post-grid-byline">
 										{ displayPostAuthor && post.author_info.display_name &&
-											<div class="ab-block-post-grid-author"><a class="ab-text-link" target="_blank" href={ post.author_info.author_link }>{ post.author_info.display_name }</a></div>
+											<div class="ab-block-post-grid-author">{ post.author_info.display_name }</div>
 										}
 
 										{ displayPostDate && post.date_gmt &&

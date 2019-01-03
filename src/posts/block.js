@@ -23,8 +23,6 @@ const {
 // Register alignments
 const validAlignments = [ 'center', 'wide' ];
 
-export const name = 'core/latest-posts';
-
 // Register the block
 registerBlockType( 'ktf2021/ktf2021-posts', {
 	title: __( 'KTF2021 Beiträge'),
