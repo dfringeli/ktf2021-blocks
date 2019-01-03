@@ -43,6 +43,14 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 				esc_attr( $post_thumb_class )
 			);
 
+			// Set the title for the posts
+			if ( isset( $attributes['title'] ) && $attributes['title'] && $post_thumb_id ) {
+				$list_items_markup .= sprintf(
+					'<h2>%1$s</h2>',
+					$attributes['title']
+				);
+			}
+
 			// Get the featured image
 			if ( isset( $attributes['displayPostImage'] ) && $attributes['displayPostImage'] && $post_thumb_id ) {
 
@@ -142,23 +150,23 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 	}
 
 	// Build the classes
-	$class = "ab-block-post-grid";
+	$class = "ktf2021-container-" . $attributes['color'];
 
 	if ( isset( $attributes['className'] ) ) {
 		$class .= ' ' . $attributes['className'];
 	}
 
-	$grid_class = 'ab-post-grid-items';
+	$content_class = 'ktf2021-content';
 
-	if ( isset( $attributes['columns'] )) {
-		$grid_class .= ' columns-' . $attributes['columns'];
+	if ( isset( $attributes['fadeIn'] ) && $attributes['fadeIn'] ) {
+		$content_class .= ' ktf2021-reveal';
 	}
 
 	// Output the post markup
 	$block_content = sprintf(
 		'<div class="%1$s"><div class="%2$s">%3$s</div></div>',
 		esc_attr( $class ),
-		esc_attr( $grid_class ),
+		esc_attr( $content_class ),
 		$list_items_markup
 	);
 
@@ -177,6 +185,17 @@ function ktf2021_blocks_register_block_core_latest_posts() {
 
 	register_block_type( 'ktf2021/ktf2021-posts', array(
 		'attributes' => array(
+			'title' => array(
+				'type' => 'string',
+			),
+			'color' => array(
+				'type' => 'string',
+				'default' => 'black'
+			),
+			'fadeIn' => array(
+				'type' => 'boolean',
+				'default' => 'true'
+			),
 			'categories' => array(
 				'type' => 'string',
 			),

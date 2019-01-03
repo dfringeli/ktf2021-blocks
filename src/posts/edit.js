@@ -36,6 +36,8 @@ const {
 
 const {
 	InspectorControls,
+	ColorPalette,
+	PlainText
 } = wp.editor;
 
 const MAX_POSTS_COLUMNS = 4;
@@ -95,11 +97,31 @@ class LatestPostsBlock extends Component {
 
 	render() {
 		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
-		const { displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage,displayPostLink, columns, order, orderBy, categories, postsToShow, readMoreText } = attributes;
+		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, columns, order, orderBy, categories, postsToShow, readMoreText } = attributes;
+
+		const colors = [
+			{ name: 'Weiss', color: 'white' },
+			{ name: 'Schwarz', color: 'black' },
+			{ name: 'Grün', color: 'green' },
+			{ name: 'Blau', color: 'blue' },
+		];
 
 		const inspectorControls = (
 			<InspectorControls>
-				<PanelBody title={ __( 'Settings' ) }>
+				<PanelBody title={ __('KTF2021 Settings') }>
+					<ColorPalette
+						value={ color }
+						colors={ colors }
+						onChange={ ( value ) => setAttributes( { color: value } ) }
+						label={ __( 'Hintergrundfarbe' ) }
+					/>
+					<ToggleControl
+						checked={ fadeIn }
+						onChange={ ( value ) => setAttributes( { fadeIn: value } ) }
+						label={ "fade in effect" }
+					/>
+				</PanelBody>
+				<PanelBody title={ __( 'Posts Settings' ) }>
 					<QueryControls
 						{ ...{ order, orderBy } }
 						numberOfItems={ postsToShow }
@@ -159,6 +181,12 @@ class LatestPostsBlock extends Component {
 			return (
 				<Fragment>
 					{ inspectorControls }
+					<PlainText
+						tagName={ 'h2' }
+						value={ title }
+						onChange={ (value) => this.props.setAttributes( { title: value} ) }
+						placeholder={ "Titel..." }
+					/>
 					<Placeholder
 						icon="admin-post"
 						label={ __( 'KTF2021 Posts' ) }
@@ -180,6 +208,12 @@ class LatestPostsBlock extends Component {
 		return (
 			<Fragment>
 				{ inspectorControls }
+				<PlainText
+					tagName={ 'h2' }
+					value={ title }
+					onChange={ (value) => this.props.setAttributes( { title: value} ) }
+					placeholder={ "Titel..." }
+				/>
 				<div
 					className={ classnames(
 						this.props.className,
