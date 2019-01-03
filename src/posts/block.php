@@ -1,9 +1,6 @@
 <?php
 /**
- * Server-side rendering for the post grid block
- *
- * @since 	1.1.7
- * @package ktf2021 Blocks
+ * Server-side rendering for the post block
  */
 
 /**

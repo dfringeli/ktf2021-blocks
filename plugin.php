@@ -2,7 +2,7 @@
 /**
  * Plugin Name: ktf2021-blocks
  * Description: ktf2021-blocks — is a Gutenberg plugin.
- * Author: dfringeli, mrahmadawais, maedahbatool
+ * Author: dfringeli
  * Version: 1.0.0
  * License: GPL2+
  * License URI: https://www.gnu.org/licenses/gpl-2.0.txt
