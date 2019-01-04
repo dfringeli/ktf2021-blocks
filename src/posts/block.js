@@ -25,8 +25,8 @@ const validAlignments = [ 'center', 'wide' ];
 
 // Register the block
 registerBlockType( 'ktf2021/ktf2021-posts', {
-	title: __( 'KTF2021 Beiträge'),
-	description: __( 'KTF 2021 Beiträge'),
+	title: __( 'KTF2021 Beitraege'),
+	description: __( 'KTF 2021 Beitraege'),
 	icon: 'grid-view',
 	category: 'ktf2021-blocks',
 	keywords: [
