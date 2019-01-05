@@ -12,7 +12,8 @@
 import './banner/block.js';
 import './text/block.js';
 
-import './columns/column.js'
+import './columns/column.js';
 import './columns/block.js';
 
-import './posts/block.js'
+import './posts/block.js';
+import './spacer/block.js';

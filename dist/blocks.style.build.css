@@ -67,3 +67,14 @@
   .ktf2021-post .ktf2021-post-link:hover {
     color: #3ca6cd;
     text-decoration: none; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
