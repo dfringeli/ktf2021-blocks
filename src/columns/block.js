@@ -20,7 +20,8 @@ const {
 const {
 	PanelBody,
 	ToggleControl,
-	RangeControl } = wp.components;
+	RangeControl,
+	SelectControl } = wp.components;
 const { Fragment } = wp.element;
 
 const ALLOWED_BLOCKS = [ 'ktf2021/ktf2021-column' ];
@@ -60,10 +61,6 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 	],
 
 	attributes: {
-		columns: {
-			type: 'number',
-			default: 2
-		},
 		color: {
 			type: 'string',
 			default: 'white'
@@ -71,6 +68,14 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 		fadeIn: {
 			type: 'boolean',
 			default: true
+		},
+		columns: {
+			type: 'number',
+			default: 2
+		},
+		verticalAlignment: {
+			type: 'string',
+			default: 'center'
 		}
 	},
 
@@ -87,6 +92,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			columns,
 			color,
 			fadeIn,
+			verticalAlignment
 		}, className } = props;
 
 		const colors = [
@@ -108,10 +114,14 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			props.setAttributes( { fadeIn: newFadeIn === undefined ? true : newFadeIn } );
 		}
 
+		function onChangeVerticalAlignment( newVerticalAlignment ) {
+			props.setAttributes( {verticalAlignment: newVerticalAlignment === undefined ? 'center' : newVerticalAlignment} );
+		}
+
 		return (
 		<Fragment>
 			<InspectorControls>
-				<PanelBody>
+				<PanelBody title={ __('KTF2021 Settings') }>
 					<ColorPalette
 						value={ color }
 						colors={ colors }
@@ -123,12 +133,24 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 						onChange={ onChangeFadeIn }
 						label={ "fade in effect" }
 					/>
+				</PanelBody>
+				<PanelBody title={ __('Spalten Settings') }>
 					<RangeControl
 							label={ __( 'Spalten' ) }
 							value={ columns }
 							onChange={ onChangeColumns }
 							min={ 1 }
 							max={ 3 }
+					/>
+					<SelectControl
+						label="Ausrichtung"
+						value={ verticalAlignment }
+						options={ [
+							{ label: 'Oben', value: 'start' },
+							{ label: 'Mitte', value: 'center' },
+							{ label: 'Unten', value: 'end' },
+						] }
+						onChange={ onChangeVerticalAlignment }
 					/>
 				</PanelBody>
 			</InspectorControls>
@@ -161,7 +183,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			<div className={props.className}>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
 					<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
-						<div class="d-flex flex-wrap align-items-center flex-lg-nowrap">
+						<div class={`d-flex flex-wrap align-items-${ props.attributes.verticalAlignment } flex-lg-nowrap`}>
 							<InnerBlocks.Content />
 						</div>
 					</div>
