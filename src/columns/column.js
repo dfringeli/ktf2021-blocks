@@ -7,7 +7,9 @@ const { InnerBlocks } = wp.editor;
 
 const { registerBlockType } = wp.blocks;
 
-const name = 'ktf2021/ktf2021-column';
+const name = 'ktf2021/ktf2021-column'
+
+const ALLOWED_BLOCKS = [ 'core/heading', 'core/paragraph', 'core/image', 'core/video', 'core-embed/youtube', 'core-embed/flickr', 'core-embed/twitter', 'core-embed/facebook', 'core-embed/instagram', 'core-embed/vimeo', 'core-embed/soundcloud', 'core-embed/spotify' ];
 
 const settings = {
 	title: __( 'KTF2021 Spalte' ),
@@ -27,11 +29,11 @@ const settings = {
 	},
 
 	edit() {
-		return <InnerBlocks templateLock={ false } />;
+		return <InnerBlocks templateLock={ false } allowedBlocks={ ALLOWED_BLOCKS } />;
 	},
 
 	save() {
-		return <div class="col-lg"><InnerBlocks.Content /></div>;
+		return <div class="m-2"><InnerBlocks.Content /></div>;
 	},
 };
 
