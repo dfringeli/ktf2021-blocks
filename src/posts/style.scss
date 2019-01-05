@@ -15,6 +15,15 @@
 
 	.ktf2021-post-title {
 		margin-bottom: 0;
+
+		a {
+			color: $color__black;
+			text-decoration: none;
+		}
+
+		a:hover {
+			color: $color__darkgray;
+		}
 	}
 
 	.ktf2021-post-byline {
@@ -24,18 +33,12 @@
 	}
 
 	.ktf2021-post-link {
-		color: $color__blue;
+		color: $color__blue_light;
 		font-weight: bold;
 	}
 
-	a, a:visited {
-		color: inherit;
-		text-decoration: none;
-	}
-
-	.ktf2021-post-link:hover,
-	a:hover {
-		color: #3ca6cd;
+	.ktf2021-post-link:hover {
+		color: $color__blue;
 		text-decoration: none;
 	}
 }
