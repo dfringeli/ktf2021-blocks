@@ -1,3 +1,69 @@
-@media (max-width: 992px){.ktf2021-text{-webkit-column-count:1 !important;column-count:1 !important}}
-.wp-block-ktf2021-ktf2021-columns ul{margin:0}
-.ktf2021-post{width:260px;padding:10px;margin:10px;background-color:#fff;color:#000}.ktf2021-post .ktf2021-post-image img{height:150px;width:100%;-o-object-fit:cover;object-fit:cover;margin-bottom:15px}.ktf2021-post .ktf2021-post-title{margin-bottom:0}.ktf2021-post .ktf2021-post-title a{color:#000;text-decoration:none}.ktf2021-post .ktf2021-post-title a:hover{color:#5D5D5D}.ktf2021-post .ktf2021-post-byline{font-size:0.8rem;color:#5D5D5D;margin-bottom:0.5rem}.ktf2021-post .ktf2021-post-link{color:#00cfff;font-weight:bold}.ktf2021-post .ktf2021-post-link:hover{color:#3ca6cd;text-decoration:none}
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+@media (max-width: 992px) {
+  .ktf2021-text {
+    -webkit-column-count: 1 !important;
+            column-count: 1 !important; } }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.wp-block-ktf2021-ktf2021-columns ul {
+  margin: 0; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.ktf2021-post {
+  width: 260px;
+  padding: 10px;
+  margin: 10px;
+  background-color: white;
+  color: black; }
+  .ktf2021-post .ktf2021-post-image img {
+    height: 150px;
+    width: 100%;
+    -o-object-fit: cover;
+       object-fit: cover;
+    margin-bottom: 15px; }
+  .ktf2021-post .ktf2021-post-title {
+    margin-bottom: 0; }
+    .ktf2021-post .ktf2021-post-title a {
+      color: black;
+      text-decoration: none; }
+    .ktf2021-post .ktf2021-post-title a:hover {
+      color: #5D5D5D; }
+  .ktf2021-post .ktf2021-post-byline {
+    font-size: 0.8rem;
+    color: #5D5D5D;
+    margin-bottom: 0.5rem; }
+  .ktf2021-post .ktf2021-post-link {
+    color: #00cfff;
+    font-weight: bold; }
+  .ktf2021-post .ktf2021-post-link:hover {
+    color: #3ca6cd;
+    text-decoration: none; }
