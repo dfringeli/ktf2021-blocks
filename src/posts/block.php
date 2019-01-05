@@ -13,6 +13,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 	$recent_posts = wp_get_recent_posts( array(
 		'numberposts' => $attributes['postsToShow'],
 		'post_status' => 'publish',
+		'post_type' => array('post', 'message'),
 		'order' => $attributes['order'],
 		'orderby' => $attributes['orderBy'],
 		'category' => $categories,
