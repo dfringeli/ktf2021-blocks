@@ -18,8 +18,5 @@ if ( ! defined( 'ABSPATH' ) ) {
 /**
  * Block Initializer.
  */
- function ktf201_blocks_loader() {
-	require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
-	require_once plugin_dir_path( __FILE__ ) . 'src/posts/block.php';
-}
-add_action( 'plugins_loaded', 'ktf201_blocks_loader' );
+require_once plugin_dir_path( __FILE__ ) . 'src/init.php';
+require_once plugin_dir_path( __FILE__ ) . 'src/posts/block.php';
