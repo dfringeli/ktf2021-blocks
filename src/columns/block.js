@@ -161,7 +161,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			<div className={props.className}>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
 					<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
-						<div class="d-flex flex-wrap flex-lg-nowrap">
+						<div class="d-flex flex-wrap align-items-center flex-lg-nowrap">
 							<InnerBlocks.Content />
 						</div>
 					</div>
