@@ -16,6 +16,7 @@ const { registerBlockType } = wp.blocks;
 const {
 	InspectorControls,
 	ColorPalette,
+	PlainText,
 	InnerBlocks } = wp.editor;
 const {
 	PanelBody,
@@ -76,7 +77,11 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 		verticalAlignment: {
 			type: 'string',
 			default: 'center'
-		}
+		},
+		title: {
+			type: 'string',
+			default: ''
+		},
 	},
 
 	/**
@@ -92,7 +97,8 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			columns,
 			color,
 			fadeIn,
-			verticalAlignment
+			verticalAlignment,
+			title
 		}, className } = props;
 
 		const colors = [
@@ -116,6 +122,10 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 
 		function onChangeVerticalAlignment( newVerticalAlignment ) {
 			props.setAttributes( {verticalAlignment: newVerticalAlignment === undefined ? 'center' : newVerticalAlignment} );
+		}
+
+		function onChangeTitle( newTitle ) {
+			props.setAttributes( { title: newTitle === undefined ? '' : newTitle } );
 		}
 
 		return (
@@ -143,7 +153,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 							max={ 3 }
 					/>
 					<SelectControl
-						label="Ausrichtung"
+						label="Vertikale Ausrichtung"
 						value={ verticalAlignment }
 						options={ [
 							{ label: 'Oben', value: 'start' },
@@ -155,15 +165,19 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 				</PanelBody>
 			</InspectorControls>
 			<div className={className}>
+				<PlainText
+					tagName={ 'h2' }
+					value={ title }
+					onChange={ onChangeTitle }
+					placeholder={ "Titel..." }
+				/>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
-						<div class="container-fluid p-0">
-							<div class="row">
-								<InnerBlocks
-										template={ getColumnsTemplate( columns ) }
-										templateLock="all"
-										allowedBlocks={ ALLOWED_BLOCKS } ></InnerBlocks>
-							</div>
-						</div>
+					<div class="d-flex flex-wrap align-items-">
+						<InnerBlocks
+								template={ getColumnsTemplate( columns ) }
+								templateLock="all"
+								allowedBlocks={ ALLOWED_BLOCKS } ></InnerBlocks>
+					</div>
 				</div>
 			</div>
 		</Fragment>
@@ -179,10 +193,21 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: function( props ) {
+
+		var titleHtml;
+		if (props.attributes.title != '') {
+			titleHtml = (
+				<div class="d-flex justify-content-center">
+					<h2>{props.attributes.title}</h2>
+				</div>
+			);
+		}
+
 		return (
 			<div className={props.className}>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
 					<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
+						{titleHtml}
 						<div class={`d-flex flex-wrap align-items-${ props.attributes.verticalAlignment } flex-lg-nowrap`}>
 							<InnerBlocks.Content />
 						</div>
