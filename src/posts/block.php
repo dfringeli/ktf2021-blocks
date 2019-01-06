@@ -37,7 +37,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 
 			// Start the markup for the post
 			$list_items_markup .= sprintf(
-				'<div class="ktf2021-post d-flex flex-column %1$s">',
+				'<div class="ktf2021-post d-flex flex-column flex-fill %1$s">',
 				esc_attr( $post_thumb_class )
 			);
 
