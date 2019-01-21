@@ -153,13 +153,24 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 		);
 	}
 
+	$newsArchiveButton = '';
+
+	// Set the title for the posts
+	if ( isset( $attributes['displayNewsArchiveButton'] ) && $attributes['displayNewsArchiveButton'] && isset( $attributes['newsArchiveButtonText'] )) {
+		$newsArchiveButton .= sprintf(
+			'<div class="d-flex justify-content-center"><div class="ktf2021-button-squared"><a class="ktf2021-button-link" href="' . get_site_url() . '/news"><span>%1$s</span></a></div></div>',
+			$attributes['newsArchiveButtonText']
+		);
+	}
+
 	// Output the post markup
 	$block_content = sprintf(
-		'<div class="%1$s"><div class="%2$s"><div class="text-center">%3$s</div><div class="d-flex justify-content-center flex-wrap">%4$s</div></div></div>',
+		'<div class="%1$s"><div class="%2$s"><div class="text-center">%3$s</div><div class="d-flex justify-content-center flex-wrap">%4$s</div>%5$s</div></div>',
 		esc_attr( $class ),	// ktf-container
 		esc_attr( $content_class ),	// ktf-content
 		$postsTitle,
-		$list_items_markup
+		$list_items_markup,
+		$newsArchiveButton
 	);
 
 	return $block_content;
@@ -229,6 +240,14 @@ function ktf2021_blocks_register_block_core_latest_posts() {
 			'readMoreText'  => array(
 				'type' => 'string',
 				'default' => '> mehr',
+			),
+			'displayNewsArchiveButton' => array(
+				'type' => 'boolean',
+				'default' => false,
+			),
+			'newsArchiveButtonText'  => array(
+				'type' => 'string',
+				'default' => 'zum News Archiv',
 			),
 		),
 		'render_callback' => 'ktf2021_blocks_render_block_core_latest_posts',

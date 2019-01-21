@@ -49,6 +49,7 @@ class LatestPostsBlock extends Component {
 		this.toggleDisplayPostAuthor = this.toggleDisplayPostAuthor.bind( this );
 		this.toggleDisplayPostImage = this.toggleDisplayPostImage.bind( this );
 		this.toggleDisplayPostLink = this.toggleDisplayPostLink.bind( this );
+		this.toggleDisplayNewsArchiveButton = this.toggleDisplayNewsArchiveButton.bind( this );
 	}
 
 	toggleDisplayPostDate() {
@@ -86,6 +87,13 @@ class LatestPostsBlock extends Component {
 		setAttributes( { displayPostLink: ! displayPostLink } );
 	}
 
+	toggleDisplayNewsArchiveButton() {
+		const { displayNewsArchiveButton } = this.props.attributes;
+		const { setAttributes } = this.props;
+
+		setAttributes( { displayNewsArchiveButton: ! displayNewsArchiveButton } );
+	}
+
 	customizeReadMoreText() {
 		const { readMoreText } = this.props.attributes;
 		const { setAttributes } = this.props;
@@ -95,7 +103,7 @@ class LatestPostsBlock extends Component {
 
 	render() {
 		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
-		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, categories, postsToShow, readMoreText } = attributes;
+		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, categories, postsToShow, readMoreText, displayNewsArchiveButton, newsArchiveButtonText } = attributes;
 
 		const colors = [
 			{ name: 'Schwarz', color: 'black' },
@@ -160,6 +168,19 @@ class LatestPostsBlock extends Component {
 						type="text"
 						value={ readMoreText }
 						onChange={ ( value ) => this.props.setAttributes( { readMoreText: value } ) }
+					/>
+					}
+					<ToggleControl
+						label={ __( 'Display News Archiv Button' ) }
+						checked={ displayNewsArchiveButton }
+						onChange={ this.toggleDisplayNewsArchiveButton }
+					/>
+					{ displayNewsArchiveButton &&
+					<TextControl
+						label={ __( 'Customize Text of the News Archiv Button' ) }
+						type="text"
+						value={ newsArchiveButtonText }
+						onChange={ ( value ) => this.props.setAttributes( { newsArchiveButtonText: value } ) }
 					/>
 					}
 				</PanelBody>

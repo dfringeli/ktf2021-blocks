@@ -67,6 +67,21 @@
   .ktf2021-post .ktf2021-post-link:hover {
     color: #3ca6cd;
     text-decoration: none; }
+
+.ktf2021-button-squared {
+  margin-top: 2em; }
+  .ktf2021-button-squared .ktf2021-button-link {
+    background-color: #00cfff;
+    color: white;
+    padding: 12px 24px;
+    border-radius: 0;
+    transition: .5s;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s; }
+  .ktf2021-button-squared .ktf2021-button-link:hover {
+    color: #5D5D5D; }
 /**
  * #.# Common SCSS
  *

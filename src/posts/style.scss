@@ -42,3 +42,24 @@
 		text-decoration: none;
 	}
 }
+
+.ktf2021-button-squared {
+
+	margin-top: 2em;
+
+	.ktf2021-button-link {
+		background-color: $color__blue_light;
+		color: $color__white;
+		padding: 12px 24px;
+		border-radius: 0;
+		transition: .5s;
+		-o-transition: .5s;
+		-ms-transition: .5s;
+		-moz-transition: .5s;
+		-webkit-transition: .5s;
+	}
+
+	.ktf2021-button-link:hover {
+		color: $color__darkgray;
+	}
+}
