@@ -198,7 +198,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 		if (props.attributes.title != '') {
 			titleHtml = (
 				<div class="d-flex justify-content-center">
-					<h2>{props.attributes.title}</h2>
+					<h2 class="text-center">{props.attributes.title}</h2>
 				</div>
 			);
 		}
