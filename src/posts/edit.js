@@ -6,7 +6,6 @@ import isUndefined from 'lodash/isUndefined';
 import pickBy from 'lodash/pickBy';
 import moment from 'moment';
 import classnames from 'classnames';
-import { stringify } from 'querystringify';
 
 const { Component, Fragment } = wp.element;
 
@@ -17,7 +16,6 @@ const { decodeEntities } = wp.htmlEntities;
 const { apiFetch } = wp;
 
 const {
-	registerStore,
 	withSelect,
 } = wp.data;
 
@@ -25,13 +23,9 @@ const {
 	PanelBody,
 	Placeholder,
 	QueryControls,
-	RangeControl,
-	SelectControl,
 	Spinner,
 	TextControl,
 	ToggleControl,
-	Toolbar,
-	withAPIData,
 } = wp.components;
 
 const {

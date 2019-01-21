@@ -155,7 +155,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 
 	$newsArchiveButton = '';
 
-	// Set the title for the posts
+	// Set the news archive button for more posts
 	if ( isset( $attributes['displayNewsArchiveButton'] ) && $attributes['displayNewsArchiveButton'] && isset( $attributes['newsArchiveButtonText'] )) {
 		$newsArchiveButton .= sprintf(
 			'<div class="d-flex justify-content-center"><div class="ktf2021-button-squared"><a class="ktf2021-button-link" href="' . get_site_url() . '/news"><span>%1$s</span></a></div></div>',
