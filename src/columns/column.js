@@ -9,7 +9,7 @@ const { registerBlockType } = wp.blocks;
 
 const name = 'ktf2021/ktf2021-column'
 
-const ALLOWED_BLOCKS = [ 'core/heading', 'core/paragraph', 'core/image', 'core/video', 'core-embed/youtube', 'core-embed/flickr', 'core-embed/twitter', 'core-embed/facebook', 'core-embed/instagram', 'core-embed/vimeo', 'core-embed/soundcloud', 'core-embed/spotify' ];
+const ALLOWED_BLOCKS = [ 'core/heading', 'core/paragraph', 'core/image', 'core/video', 'core/html', 'core-embed/youtube', 'core-embed/flickr', 'core-embed/twitter', 'core-embed/facebook', 'core-embed/instagram', 'core-embed/vimeo', 'core-embed/soundcloud', 'core-embed/spotify' ];
 
 const settings = {
 	title: __( 'KTF2021 Spalte' ),
