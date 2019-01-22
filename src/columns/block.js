@@ -16,7 +16,7 @@ const { registerBlockType } = wp.blocks;
 const {
 	InspectorControls,
 	ColorPalette,
-	PlainText,
+	RichText,
 	InnerBlocks } = wp.editor;
 const {
 	PanelBody,
@@ -165,14 +165,14 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 				</PanelBody>
 			</InspectorControls>
 			<div className={className}>
-				<PlainText
+				<RichText
 					tagName={ 'h2' }
 					value={ title }
 					onChange={ onChangeTitle }
 					placeholder={ "Titel..." }
 				/>
 				<div className={`ktf2021-container-${ props.attributes.color }`}>
-					<div class="d-flex flex-wrap align-items-">
+					<div className="d-flex flex-wrap">
 						<InnerBlocks
 								template={ getColumnsTemplate( columns ) }
 								templateLock="all"
