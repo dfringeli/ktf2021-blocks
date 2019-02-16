@@ -19,6 +19,12 @@
 		a {
 			color: $color__black;
 			text-decoration: none;
+			
+			transition: .5s;
+			-o-transition: .5s;
+			-ms-transition: .5s;
+			-moz-transition: .5s;
+			-webkit-transition: .5s;
 		}
 
 		a:hover {
@@ -33,12 +39,18 @@
 	}
 
 	.ktf2021-post-link {
-		color: $color__blue_light;
+		color: $color__blue;
 		font-weight: bold;
+		
+        transition: .5s;
+        -o-transition: .5s;
+        -ms-transition: .5s;
+        -moz-transition: .5s;
+        -webkit-transition: .5s;
 	}
 
 	.ktf2021-post-link:hover {
-		color: $color__blue;
+		color: $color__blue_hover;
 		text-decoration: none;
 	}
 }
@@ -48,7 +60,7 @@
 	margin-top: 2em;
 
 	.ktf2021-button-link {
-		background-color: $color__blue_light;
+		background-color: $color__blue;
 		color: $color__white;
 		padding: 12px 24px;
 		border-radius: 0;
@@ -61,6 +73,7 @@
 	}
 
 	.ktf2021-button-link:hover {
-		color: $color__darkgray;
+		background-color: $color__blue_hover;
+		color: $color__white;
 	}
 }
