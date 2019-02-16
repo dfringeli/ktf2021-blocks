@@ -10,6 +10,7 @@
  */
 
 import './banner/block.js';
+import './button/block.js';
 import './text/block.js';
 
 import './columns/column.js';

@@ -1,0 +1,50 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+ .wp-block-ktf2021-ktf2021-button.aligncenter.ktf2021-blocks-button-container {
+     display: table;
+ }
+
+ .ktf2021-blocks-button-container {
+
+    .ktf2021-blocks-button {
+        padding: 10px;
+        transition: .5s;
+        -o-transition: .5s;
+        -ms-transition: .5s;
+        -moz-transition: .5s;
+        -webkit-transition: .5s;
+    }
+
+    .ktf2021-blocks-button-blue {
+        background-color: $color__blue;
+        color: $color__white;
+    }
+
+    .ktf2021-blocks-button-blue:hover {
+        background-color: $color__blue_hover;
+        color: $color__white;
+    }
+
+    .ktf2021-blocks-button-green {
+        background-color: $color__green;
+        color: $color__white;
+    }
+
+    .ktf2021-blocks-button-green:hover {
+        background-color: $color__green_hover;
+        color: $color__white;
+    }
+
+    .ktf2021-blocks-button-black {
+        background-color: $color__black;
+        color: $color__white;
+    }
+
+    .ktf2021-blocks-button-black:hover {
+        background-color: $color__black_hover;
+        color: $color__white;
+    }
+ }
