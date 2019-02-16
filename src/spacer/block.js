@@ -16,8 +16,7 @@ const {
 	ColorPalette } = wp.editor;
 const {
 	PanelBody,
-	BaseControl,
-	ResizableBox } = wp.components;
+	BaseControl } = wp.components;
 const { Fragment } = wp.element;
 
 
