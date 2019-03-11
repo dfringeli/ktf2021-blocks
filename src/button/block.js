@@ -55,9 +55,7 @@ registerBlockType('ktf2021/ktf2021-button', {
 	],
 	parent: ['ktf2021/ktf2021-column'],
 	supports: {
-		align: true,
-		alignWide: false,
-		customClassName: false,
+		align: true
 	},
 
 	attributes: {

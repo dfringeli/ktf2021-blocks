@@ -45,6 +45,10 @@ add_action( 'enqueue_block_assets', 'ktf2021_blocks_cgb_block_assets' );
  * @since 1.0.0
  */
 function ktf2021_blocks_cgb_editor_assets() {
+	wp_enqueue_style('bootstrap', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css');
+
+	wp_enqueue_script( 'bootstrap-js', 'https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js', array(), '20180820', true);
+	
 	// Scripts.
 	wp_enqueue_script(
 		'ktf2021_blocks-cgb-block-js', // Handle.

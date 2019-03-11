@@ -190,6 +190,7 @@ function ktf2021_blocks_register_block_core_latest_posts() {
 		'attributes' => array(
 			'title' => array(
 				'type' => 'string',
+				'default' => 'News'
 			),
 			'color' => array(
 				'type' => 'string',

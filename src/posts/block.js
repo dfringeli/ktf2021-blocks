@@ -32,6 +32,9 @@ registerBlockType( 'ktf2021/ktf2021-posts', {
 	keywords: [
 		__( 'post'),
 	],
+	supports: {
+		multiple: false
+	},
 
 	getEditWrapperProps( attributes ) {
 		const { align } = attributes;
