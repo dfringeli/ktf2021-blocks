@@ -9,6 +9,8 @@
 import './style.scss';
 import './editor.scss';
 
+import classnames from 'classnames';
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const {
@@ -66,7 +68,9 @@ registerBlockType( 'ktf2021/ktf2021-spacer', {
 		const { attributes: {
 			color,
 			height,
-		} } = props;
+		},
+		isSelected
+		} = props;
 
 		const colors = [
 			{ name: 'Weiss', color: 'white' },
@@ -79,9 +83,11 @@ registerBlockType( 'ktf2021/ktf2021-spacer', {
 			props.setAttributes( { color: newColor === undefined ? 'white' : newColor } );
 		}
 
+		const editorBlockClassNames = classnames("ktf2021-container-" + color, isSelected ? "block-is-selected" : "block-is-unselected");
+
 		return (
 			<Fragment>
-				<div style={ { height: height } } />
+				<div style={ { height: height } } className={ editorBlockClassNames } />
 				<InspectorControls>
 					<PanelBody title={ __('KTF2021 Settings') }>
 						<ColorPalette

@@ -4,53 +4,6 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
-.ktf2021-blocks-button-container {
-  display: inline-block; }
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Editor Styles
- *
- * CSS for just Backend enqueued after style.scss
- * which makes it higher in priority.
- */
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * #.# Common SCSS
- *
- * Can include things like variables and mixins
- * that are used across the project.
-*/
-/**
- * Editor styles for the admin
- */
 .block-is-selected {
   opacity: 1;
   transition: opacity .5s;
@@ -76,7 +29,13 @@
 
 .ktf2021-container-white {
   background-color: white;
-  color: black; }
+  color: black;
+  border: black 1px solid;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
   .ktf2021-container-white a {
     color: silver; }
   .ktf2021-container-white a:hover {
@@ -84,7 +43,12 @@
 
 .ktf2021-container-black {
   background-color: black;
-  color: white; }
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
   .ktf2021-container-black h2 {
     color: white; }
   .ktf2021-container-black a {
@@ -94,7 +58,12 @@
 
 .ktf2021-container-blue {
   background-color: #00cfff;
-  color: white; }
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
   .ktf2021-container-blue h2 {
     color: white; }
   .ktf2021-container-blue a {
@@ -104,7 +73,296 @@
 
 .ktf2021-container-green {
   background-color: #a3d01e;
-  color: white; }
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-green h2 {
+    color: white; }
+  .ktf2021-container-green a {
+    color: black; }
+  .ktf2021-container-green a:hover {
+    color: #969696; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-is-selected {
+  opacity: 1;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.block-is-unselected {
+  opacity: 0.4;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.ktf2021-container-white,
+.ktf2021-container-black,
+.ktf2021-container-blue,
+.ktf2021-container-green,
+.ktf2021-container-carousel {
+  padding: 1vh 1vw; }
+
+.ktf2021-container-white {
+  background-color: white;
+  color: black;
+  border: black 1px solid;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-white a {
+    color: silver; }
+  .ktf2021-container-white a:hover {
+    color: #969696; }
+
+.ktf2021-container-black {
+  background-color: black;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-black h2 {
+    color: white; }
+  .ktf2021-container-black a {
+    color: silver; }
+  .ktf2021-container-black a:hover {
+    color: #969696; }
+
+.ktf2021-container-blue {
+  background-color: #00cfff;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-blue h2 {
+    color: white; }
+  .ktf2021-container-blue a {
+    color: dimgray; }
+  .ktf2021-container-blue a:hover {
+    color: black; }
+
+.ktf2021-container-green {
+  background-color: #a3d01e;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-green h2 {
+    color: white; }
+  .ktf2021-container-green a {
+    color: black; }
+  .ktf2021-container-green a:hover {
+    color: #969696; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+.ktf2021-blocks-button-container {
+  display: inline-block; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-is-selected {
+  opacity: 1;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.block-is-unselected {
+  opacity: 0.4;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.ktf2021-container-white,
+.ktf2021-container-black,
+.ktf2021-container-blue,
+.ktf2021-container-green,
+.ktf2021-container-carousel {
+  padding: 1vh 1vw; }
+
+.ktf2021-container-white {
+  background-color: white;
+  color: black;
+  border: black 1px solid;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-white a {
+    color: silver; }
+  .ktf2021-container-white a:hover {
+    color: #969696; }
+
+.ktf2021-container-black {
+  background-color: black;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-black h2 {
+    color: white; }
+  .ktf2021-container-black a {
+    color: silver; }
+  .ktf2021-container-black a:hover {
+    color: #969696; }
+
+.ktf2021-container-blue {
+  background-color: #00cfff;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-blue h2 {
+    color: white; }
+  .ktf2021-container-blue a {
+    color: dimgray; }
+  .ktf2021-container-blue a:hover {
+    color: black; }
+
+.ktf2021-container-green {
+  background-color: #a3d01e;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-green h2 {
+    color: white; }
+  .ktf2021-container-green a {
+    color: black; }
+  .ktf2021-container-green a:hover {
+    color: #969696; }
+
+/**
+ * #.# Editor Styles
+ *
+ * CSS for just Backend enqueued after style.scss
+ * which makes it higher in priority.
+ */
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-is-selected {
+  opacity: 1;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.block-is-unselected {
+  opacity: 0.4;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.ktf2021-container-white,
+.ktf2021-container-black,
+.ktf2021-container-blue,
+.ktf2021-container-green,
+.ktf2021-container-carousel {
+  padding: 1vh 1vw; }
+
+.ktf2021-container-white {
+  background-color: white;
+  color: black;
+  border: black 1px solid;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-white a {
+    color: silver; }
+  .ktf2021-container-white a:hover {
+    color: #969696; }
+
+.ktf2021-container-black {
+  background-color: black;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-black h2 {
+    color: white; }
+  .ktf2021-container-black a {
+    color: silver; }
+  .ktf2021-container-black a:hover {
+    color: #969696; }
+
+.ktf2021-container-blue {
+  background-color: #00cfff;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-blue h2 {
+    color: white; }
+  .ktf2021-container-blue a {
+    color: dimgray; }
+  .ktf2021-container-blue a:hover {
+    color: black; }
+
+.ktf2021-container-green {
+  background-color: #a3d01e;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
   .ktf2021-container-green h2 {
     color: white; }
   .ktf2021-container-green a {
@@ -117,6 +375,175 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+.block-is-selected {
+  opacity: 1;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.block-is-unselected {
+  opacity: 0.4;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.ktf2021-container-white,
+.ktf2021-container-black,
+.ktf2021-container-blue,
+.ktf2021-container-green,
+.ktf2021-container-carousel {
+  padding: 1vh 1vw; }
+
+.ktf2021-container-white {
+  background-color: white;
+  color: black;
+  border: black 1px solid;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-white a {
+    color: silver; }
+  .ktf2021-container-white a:hover {
+    color: #969696; }
+
+.ktf2021-container-black {
+  background-color: black;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-black h2 {
+    color: white; }
+  .ktf2021-container-black a {
+    color: silver; }
+  .ktf2021-container-black a:hover {
+    color: #969696; }
+
+.ktf2021-container-blue {
+  background-color: #00cfff;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-blue h2 {
+    color: white; }
+  .ktf2021-container-blue a {
+    color: dimgray; }
+  .ktf2021-container-blue a:hover {
+    color: black; }
+
+.ktf2021-container-green {
+  background-color: #a3d01e;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-green h2 {
+    color: white; }
+  .ktf2021-container-green a {
+    color: black; }
+  .ktf2021-container-green a:hover {
+    color: #969696; }
+/**
+ * #.# Common SCSS
+ *
+ * Can include things like variables and mixins
+ * that are used across the project.
+*/
+.block-is-selected {
+  opacity: 1;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.block-is-unselected {
+  opacity: 0.4;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.ktf2021-container-white,
+.ktf2021-container-black,
+.ktf2021-container-blue,
+.ktf2021-container-green,
+.ktf2021-container-carousel {
+  padding: 1vh 1vw; }
+
+.ktf2021-container-white {
+  background-color: white;
+  color: black;
+  border: black 1px solid;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-white a {
+    color: silver; }
+  .ktf2021-container-white a:hover {
+    color: #969696; }
+
+.ktf2021-container-black {
+  background-color: black;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-black h2 {
+    color: white; }
+  .ktf2021-container-black a {
+    color: silver; }
+  .ktf2021-container-black a:hover {
+    color: #969696; }
+
+.ktf2021-container-blue {
+  background-color: #00cfff;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-blue h2 {
+    color: white; }
+  .ktf2021-container-blue a {
+    color: dimgray; }
+  .ktf2021-container-blue a:hover {
+    color: black; }
+
+.ktf2021-container-green {
+  background-color: #a3d01e;
+  color: white;
+  transition: background-color .5s;
+  -o-transition: background-color .5s;
+  -ms-transition: background-color .5s;
+  -moz-transition: background-color .5s;
+  -webkit-transition: background-color .5s; }
+  .ktf2021-container-green h2 {
+    color: white; }
+  .ktf2021-container-green a {
+    color: black; }
+  .ktf2021-container-green a:hover {
+    color: #969696; }
+
 /**
  * #.# Editor Styles
  *
