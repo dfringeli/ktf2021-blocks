@@ -94,7 +94,7 @@ class LatestPostsBlock extends Component {
 	}
 
 	render() {
-		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
+		const { attributes, categoriesList, setAttributes, latestPosts, isSelected } = this.props;
 		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, categories, postsToShow, readMoreText, displayNewsArchiveButton, newsArchiveButtonText } = attributes;
 
 		const colors = [
@@ -209,10 +209,12 @@ class LatestPostsBlock extends Component {
 				latestPosts.slice(0, postsToShow) :
 				latestPosts;
 
+			const editorBlockClassNames = classnames("ktf2021-container-" + color, isSelected ? "block-is-selected" : "block-is-unselected");
+
 			return (
 				<Fragment>
 					{inspectorControls}
-					<div className={`ktf2021-container-${ color }`}>
+					<div className={editorBlockClassNames}>
 						<RichText
 							tagName={'h2'}
 							value={title}

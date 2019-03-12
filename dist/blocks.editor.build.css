@@ -51,6 +51,22 @@
 /**
  * Editor styles for the admin
  */
+.block-is-selected {
+  opacity: 1;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
+.block-is-unselected {
+  opacity: 0.4;
+  transition: opacity .5s;
+  -o-transition: opacity .5s;
+  -ms-transition: opacity .5s;
+  -moz-transition: opacity .5s;
+  -webkit-transition: opacity .5s; }
+
 .ktf2021-container-white,
 .ktf2021-container-black,
 .ktf2021-container-blue,

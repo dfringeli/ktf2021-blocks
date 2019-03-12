@@ -2,6 +2,25 @@
  * Editor styles for the admin
  */
 
+/// Block Selection
+.block-is-selected {
+    opacity: $opacity__selected;
+    transition: opacity .5s;
+    -o-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -webkit-transition: opacity .5s;
+}
+
+.block-is-unselected {
+    opacity: $opacity__unselected;
+    transition: opacity .5s;
+    -o-transition: opacity .5s;
+    -ms-transition: opacity .5s;
+    -moz-transition: opacity .5s;
+    -webkit-transition: opacity .5s;
+}
+
 /// Mobile
 .ktf2021-container-white,
 .ktf2021-container-black,
