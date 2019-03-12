@@ -10,6 +10,7 @@ import './style.scss';
 import './editor.scss';
 
 import { times } from 'lodash';
+import classnames from 'classnames';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
@@ -25,7 +26,7 @@ const {
 	SelectControl } = wp.components;
 const { Fragment } = wp.element;
 
-const ALLOWED_BLOCKS = [ 'ktf2021/ktf2021-column' ];
+const ALLOWED_BLOCKS = ['ktf2021/ktf2021-column'];
 
 /**
  * Returns the layouts configuration for a given number of columns.
@@ -34,8 +35,8 @@ const ALLOWED_BLOCKS = [ 'ktf2021/ktf2021-column' ];
  *
  * @return {Object[]} Columns layout configuration.
  */
-const getColumnsTemplate = ( columns ) => {
-	return times( columns, () => [ 'ktf2021/ktf2021-column' ] );
+const getColumnsTemplate = (columns) => {
+	return times(columns, () => ['ktf2021/ktf2021-column']);
 };
 
 /**
@@ -51,14 +52,14 @@ const getColumnsTemplate = ( columns ) => {
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'ktf2021/ktf2021-columns', {
-	title: __( 'KTF2021 Spalten' ),
+registerBlockType('ktf2021/ktf2021-columns', {
+	title: __('KTF2021 Spalten'),
 	icon: 'editor-table',
 	category: 'ktf2021-blocks',
 	keywords: [
-		__( 'ktf2021' ),
-		__( 'Spalten' ),
-		__( 'colum' ),
+		__('ktf2021'),
+		__('Spalten'),
+		__('colum'),
 	],
 
 	attributes: {
@@ -92,14 +93,14 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	edit: function( props ) {
+	edit: function (props) {
 		const { attributes: {
 			columns,
 			color,
 			fadeIn,
 			verticalAlignment,
 			title
-		}, className } = props;
+		}, className, isSelected } = props;
 
 		const colors = [
 			{ name: 'Weiss', color: 'white' },
@@ -108,79 +109,79 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			{ name: 'Blau', color: 'blue' },
 		];
 
-		function onChangeColumns( newColumns ) {
-			props.setAttributes( { columns: newColumns === undefined ? 2 : newColumns } );
+		function onChangeColumns(newColumns) {
+			props.setAttributes({ columns: newColumns === undefined ? 2 : newColumns });
 		}
 
-		function onChangeColor( newColor ) {
-			props.setAttributes( { color: newColor === undefined ? 'white' : newColor } );
+		function onChangeColor(newColor) {
+			props.setAttributes({ color: newColor === undefined ? 'white' : newColor });
 		}
 
-		function onChangeFadeIn( newFadeIn ) {
-			props.setAttributes( { fadeIn: newFadeIn === undefined ? true : newFadeIn } );
+		function onChangeFadeIn(newFadeIn) {
+			props.setAttributes({ fadeIn: newFadeIn === undefined ? true : newFadeIn });
 		}
 
-		function onChangeVerticalAlignment( newVerticalAlignment ) {
-			props.setAttributes( {verticalAlignment: newVerticalAlignment === undefined ? 'center' : newVerticalAlignment} );
+		function onChangeVerticalAlignment(newVerticalAlignment) {
+			props.setAttributes({ verticalAlignment: newVerticalAlignment === undefined ? 'center' : newVerticalAlignment });
 		}
 
-		function onChangeTitle( newTitle ) {
-			props.setAttributes( { title: newTitle === undefined ? '' : newTitle } );
+		function onChangeTitle(newTitle) {
+			props.setAttributes({ title: newTitle === undefined ? '' : newTitle });
 		}
+
+		const editorBlockClassNames = classnames("ktf2021-container-" + color);
 
 		return (
-		<Fragment>
-			<InspectorControls>
-				<PanelBody title={ __('KTF2021 Settings') }>
-					<ColorPalette
-						value={ color }
-						colors={ colors }
-						onChange={ onChangeColor }
-						label={ __( 'Hintergrundfarbe' ) }
+			<Fragment>
+				<InspectorControls>
+					<PanelBody title={__('KTF2021 Settings')}>
+						<ColorPalette
+							value={color}
+							colors={colors}
+							onChange={onChangeColor}
+							label={__('Hintergrundfarbe')}
+						/>
+						<ToggleControl
+							checked={fadeIn}
+							onChange={onChangeFadeIn}
+							label={"fade in effect"}
+						/>
+					</PanelBody>
+					<PanelBody title={__('Spalten Settings')}>
+						<RangeControl
+							label={__('Spalten')}
+							value={columns}
+							onChange={onChangeColumns}
+							min={1}
+							max={3}
+						/>
+						<SelectControl
+							label="Vertikale Ausrichtung"
+							value={verticalAlignment}
+							options={[
+								{ label: 'Oben', value: 'start' },
+								{ label: 'Mitte', value: 'center' },
+								{ label: 'Unten', value: 'end' },
+							]}
+							onChange={onChangeVerticalAlignment}
+						/>
+					</PanelBody>
+				</InspectorControls>
+				<div className={editorBlockClassNames}>
+					<RichText
+						tagName={'h2'}
+						value={title}
+						onChange={onChangeTitle}
+						placeholder={"Titel..."}
 					/>
-					<ToggleControl
-						checked={ fadeIn }
-						onChange={ onChangeFadeIn }
-						label={ "fade in effect" }
-					/>
-				</PanelBody>
-				<PanelBody title={ __('Spalten Settings') }>
-					<RangeControl
-							label={ __( 'Spalten' ) }
-							value={ columns }
-							onChange={ onChangeColumns }
-							min={ 1 }
-							max={ 3 }
-					/>
-					<SelectControl
-						label="Vertikale Ausrichtung"
-						value={ verticalAlignment }
-						options={ [
-							{ label: 'Oben', value: 'start' },
-							{ label: 'Mitte', value: 'center' },
-							{ label: 'Unten', value: 'end' },
-						] }
-						onChange={ onChangeVerticalAlignment }
-					/>
-				</PanelBody>
-			</InspectorControls>
-			<div className={className}>
-				<RichText
-					tagName={ 'h2' }
-					value={ title }
-					onChange={ onChangeTitle }
-					placeholder={ "Titel..." }
-				/>
-				<div className={`ktf2021-container-${ props.attributes.color }`}>
 					<div className="d-flex flex-wrap">
 						<InnerBlocks
-								template={ getColumnsTemplate( columns ) }
-								templateLock="all"
-								allowedBlocks={ ALLOWED_BLOCKS } ></InnerBlocks>
+							template={getColumnsTemplate(columns)}
+							templateLock="all"
+							allowedBlocks={ALLOWED_BLOCKS} ></InnerBlocks>
 					</div>
 				</div>
-			</div>
-		</Fragment>
+			</Fragment>
 		);
 	},
 
@@ -192,7 +193,7 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	save: function( props ) {
+	save: function (props) {
 
 		var titleHtml;
 		if (props.attributes.title != '') {
@@ -205,10 +206,10 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 
 		return (
 			<div className={props.className}>
-				<div className={`ktf2021-container-${ props.attributes.color }`}>
+				<div className={`ktf2021-container-${props.attributes.color}`}>
 					<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
 						{titleHtml}
-						<div class={`d-flex flex-wrap align-items-${ props.attributes.verticalAlignment } flex-lg-nowrap`}>
+						<div class={`d-flex flex-wrap align-items-${props.attributes.verticalAlignment} flex-lg-nowrap`}>
 							<InnerBlocks.Content />
 						</div>
 					</div>
@@ -216,4 +217,4 @@ registerBlockType( 'ktf2021/ktf2021-columns', {
 			</div>
 		);
 	},
-} );
+});
