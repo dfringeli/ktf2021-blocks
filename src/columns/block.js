@@ -177,7 +177,7 @@ registerBlockType('ktf2021/ktf2021-columns', {
 					<div className="d-flex flex-wrap">
 						<InnerBlocks
 							template={getColumnsTemplate(columns)}
-							templateLock="all"
+							templateLock="insert"
 							allowedBlocks={ALLOWED_BLOCKS} ></InnerBlocks>
 					</div>
 				</div>
