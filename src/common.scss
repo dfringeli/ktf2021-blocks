@@ -26,16 +26,6 @@ $color__gray_light: rgb(192,192,192);
 $opacity__selected: 1;
 $opacity__unselected: .4;
 
-
-/// Block Selection
-.block-is-selected {
-    opacity: $opacity__selected;
-}
-
-.block-is-unselected {
-    opacity: $opacity__unselected;
-}
-
 /// Mobile
 .ktf2021-container-white,
 .ktf2021-container-black,

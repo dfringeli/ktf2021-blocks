@@ -209,7 +209,7 @@ class LatestPostsBlock extends Component {
 				latestPosts.slice(0, postsToShow) :
 				latestPosts;
 
-			const editorBlockClassNames = classnames("ktf2021-container-" + color, isSelected ? "block-is-selected" : "block-is-unselected");
+			const editorBlockClassNames = classnames("ktf2021-container-" + color);
 
 			return (
 				<Fragment>

@@ -83,7 +83,7 @@ registerBlockType( 'ktf2021/ktf2021-spacer', {
 			props.setAttributes( { color: newColor === undefined ? 'white' : newColor } );
 		}
 
-		const editorBlockClassNames = classnames("ktf2021-container-" + color, isSelected ? "block-is-selected" : "block-is-unselected");
+		const editorBlockClassNames = classnames("ktf2021-container-" + color);
 
 		return (
 			<Fragment>
