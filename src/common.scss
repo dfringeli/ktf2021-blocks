@@ -5,6 +5,10 @@
  * that are used across the project.
 */
 
+.wp-block {
+    max-width: none;
+}
+
 // Colors.
 
 $color__white: white;

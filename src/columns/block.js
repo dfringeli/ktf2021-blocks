@@ -174,7 +174,7 @@ registerBlockType('ktf2021/ktf2021-columns', {
 						onChange={onChangeTitle}
 						placeholder={"Titel..."}
 					/>
-					<div className="d-flex flex-wrap">
+					<div className="ktf2021-columns-edit-inner-blocks">
 						<InnerBlocks
 							template={getColumnsTemplate(columns)}
 							templateLock="insert"

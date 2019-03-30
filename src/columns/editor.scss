@@ -1,0 +1,15 @@
+.ktf2021-columns-edit-inner-blocks .editor-inner-blocks .editor-block-list__layout {
+    display: flex!important;
+    flex-wrap: wrap!important;
+
+    .editor-inner-blocks .editor-block-list__layout {
+        display: block!important;
+        flex: none!important;
+    }
+
+    [data-type="ktf2021/ktf2021-column"] {
+        border: 1px solid black;
+        flex: 1 1 auto!important;
+        margin: .5rem!important;
+    }
+}
