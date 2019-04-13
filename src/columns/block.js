@@ -178,7 +178,7 @@ registerBlockType('ktf2021/ktf2021-columns', {
 					<div className="ktf2021-columns-edit-inner-blocks">
 						<InnerBlocks
 							template={getColumnsTemplate(columns)}
-							templateLock="insert"
+							templateLock="all"
 							allowedBlocks={ALLOWED_BLOCKS} />
 					</div>
 				</div>
