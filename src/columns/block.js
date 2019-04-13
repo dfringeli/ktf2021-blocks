@@ -9,6 +9,7 @@
 import './style.scss';
 import './editor.scss';
 
+import memoize from 'memize';
 import { times } from 'lodash';
 import classnames from 'classnames';
 
@@ -35,9 +36,9 @@ const ALLOWED_BLOCKS = ['ktf2021/ktf2021-column'];
  *
  * @return {Object[]} Columns layout configuration.
  */
-const getColumnsTemplate = (columns) => {
-	return times(columns, () => ['ktf2021/ktf2021-column']);
-};
+const getColumnsTemplate = memoize( ( columns ) => {
+	return times( columns, () => [ 'ktf2021/ktf2021-column' ] );
+} );
 
 /**
  * Register: aa Gutenberg Block.
@@ -100,7 +101,7 @@ registerBlockType('ktf2021/ktf2021-columns', {
 			fadeIn,
 			verticalAlignment,
 			title
-		}, className, isSelected } = props;
+		}, setAttributes } = props;
 
 		const colors = [
 			{ name: 'Weiss', color: 'white' },
@@ -110,23 +111,23 @@ registerBlockType('ktf2021/ktf2021-columns', {
 		];
 
 		function onChangeColumns(newColumns) {
-			props.setAttributes({ columns: newColumns === undefined ? 2 : newColumns });
+			setAttributes({ columns: newColumns === undefined ? 2 : newColumns });
 		}
 
 		function onChangeColor(newColor) {
-			props.setAttributes({ color: newColor === undefined ? 'white' : newColor });
+			setAttributes({ color: newColor === undefined ? 'white' : newColor });
 		}
 
 		function onChangeFadeIn(newFadeIn) {
-			props.setAttributes({ fadeIn: newFadeIn === undefined ? true : newFadeIn });
+			setAttributes({ fadeIn: newFadeIn === undefined ? true : newFadeIn });
 		}
 
 		function onChangeVerticalAlignment(newVerticalAlignment) {
-			props.setAttributes({ verticalAlignment: newVerticalAlignment === undefined ? 'center' : newVerticalAlignment });
+			setAttributes({ verticalAlignment: newVerticalAlignment === undefined ? 'center' : newVerticalAlignment });
 		}
 
 		function onChangeTitle(newTitle) {
-			props.setAttributes({ title: newTitle === undefined ? '' : newTitle });
+			setAttributes({ title: newTitle === undefined ? '' : newTitle });
 		}
 
 		const editorBlockClassNames = classnames("ktf2021-container-" + color);
@@ -178,7 +179,7 @@ registerBlockType('ktf2021/ktf2021-columns', {
 						<InnerBlocks
 							template={getColumnsTemplate(columns)}
 							templateLock="insert"
-							allowedBlocks={ALLOWED_BLOCKS} ></InnerBlocks>
+							allowedBlocks={ALLOWED_BLOCKS} />
 					</div>
 				</div>
 			</Fragment>

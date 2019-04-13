@@ -17,7 +17,6 @@
 .ktf2021-container-white {
   background-color: white;
   color: black;
-  border: black 1px solid;
   transition: .5s;
   -o-transition: .5s;
   -ms-transition: .5s;
@@ -98,7 +97,6 @@
 .ktf2021-container-white {
   background-color: white;
   color: black;
-  border: black 1px solid;
   transition: .5s;
   -o-transition: .5s;
   -ms-transition: .5s;
@@ -181,7 +179,6 @@
 .ktf2021-container-white {
   background-color: white;
   color: black;
-  border: black 1px solid;
   transition: .5s;
   -o-transition: .5s;
   -ms-transition: .5s;
@@ -262,7 +259,6 @@
 .ktf2021-container-white {
   background-color: white;
   color: black;
-  border: black 1px solid;
   transition: .5s;
   -o-transition: .5s;
   -ms-transition: .5s;
@@ -332,6 +328,9 @@
     -ms-flex: 1 1 auto !important;
         flex: 1 1 auto !important;
     margin: 0.5rem !important; }
+
+.ktf2021-container-white {
+  border: 1px black solid; }
 /**
  * #.# Common SCSS
  *
@@ -351,7 +350,6 @@
 .ktf2021-container-white {
   background-color: white;
   color: black;
-  border: black 1px solid;
   transition: .5s;
   -o-transition: .5s;
   -ms-transition: .5s;
@@ -425,7 +423,6 @@
 .ktf2021-container-white {
   background-color: white;
   color: black;
-  border: black 1px solid;
   transition: .5s;
   -o-transition: .5s;
   -ms-transition: .5s;

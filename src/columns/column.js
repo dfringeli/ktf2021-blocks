@@ -20,7 +20,7 @@ const settings = {
 
 	description: __( 'A single column within a columns block.' ),
 
-	category: 'common',
+	category: 'ktf2021-blocks',
 
 	supports: {
 		inserter: false,
