@@ -1,16 +1,21 @@
 
 .ktf2021-post {
-	max-width: 29%;
 	padding: 10px;
-	margin: 10px;
 	background-color: $color__white;
 	color: $color__black;
 
-	.ktf2021-post-image img {
+	.ktf2021-post-image-link {
+		
+		margin-bottom: 15px;
+
+		.ktf2021-post-image {
 		height: 150px;
 		width: 100%;
-		object-fit: cover;
-		margin-bottom: 15px;
+			// top: 0; left: 0; bottom: 0; right: 0;
+			background-size: cover;
+			background-repeat: no-repeat;
+			background-position: 50% 50%;
+		}
 	}
 
 	.ktf2021-post-title {

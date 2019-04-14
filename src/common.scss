@@ -4,6 +4,9 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
+// Required Core Stylesheet
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss";
+@import "../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss";
 
 .wp-block {
     max-width: none;

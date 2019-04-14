@@ -37,7 +37,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 
 			// Start the markup for the post
 			$list_items_markup .= sprintf(
-				'<div class="ktf2021-post d-flex flex-column flex-fill %1$s">',
+				'<li class="glide__slide"><div class="ktf2021-post d-flex flex-column flex-fill %1$s">',
 				esc_attr( $post_thumb_class )
 			);
 
@@ -45,7 +45,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 			if ( isset( $attributes['displayPostImage'] ) && $attributes['displayPostImage'] && $post_thumb_id ) {
 
 				$list_items_markup .= sprintf(
-					'<div class="ktf2021-post-image"><a href="%1$s"><img src="%2$s" /></a></div>',
+					'<a class="ktf2021-post-image-link" href="%1$s"><div class="ktf2021-post-image" style="background-image: url(%2$s)"></div></a>',
 					esc_url( get_permalink( $post_id ) ),
 					wp_get_attachment_url( $post_thumb_id, array( '', '200' ) )
 				);
@@ -126,7 +126,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 				}
 
 			// Close the markup for the post
-			$list_items_markup .= "</div>\n";
+			$list_items_markup .= "</div></li>\n";
 		}
 	}
 
@@ -162,16 +162,34 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 			$attributes['newsArchiveButtonText']
 		);
 	}
-
-	// Output the post markup
-	$block_content = sprintf(
-		'<div class="%1$s"><div class="%2$s"><div class="text-center">%3$s</div><div class="d-flex justify-content-center flex-wrap">%4$s</div>%5$s</div></div>',
+	
+	$block_content = '<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>';
+	$block_content .= sprintf('<div class="%1$s"><div class="%2$s">
+	<div class="text-center">%3$s</div>
+	<div class="ktf2021-news">
+		<div class="glide__track" data-glide-el="track">
+			<ul class="glide__slides">%4$s</ul>
+		</div>
+		<div class="glide__arrows" data-glide-el="controls">
+			<button class="glide__arrow glide__arrow--left" data-glide-dir="&lt;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M0 12l10.975 11 2.848-2.828-6.176-6.176H24v-3.992H7.646l6.176-6.176L10.975 1 0 12z"></path></svg></button>
+			<button class="glide__arrow glide__arrow--right" data-glide-dir="&gt;"><svg xmlns="http://www.w3.org/2000/svg" width="18" height="18" viewBox="0 0 24 24"><path d="M13.025 1l-2.847 2.828 6.176 6.176h-16.354v3.992h16.354l-6.176 6.176 2.847 2.828 10.975-11z"></path></svg></button>
+		</div>
+	</div>
+	%5$s
+    </div></div>',
 		esc_attr( $class ),	// ktf-container
 		esc_attr( $content_class ),	// ktf-content
 		$postsTitle,
 		$list_items_markup,
 		$newsArchiveButton
 	);
+	$block_content .= "<script>var glide = new Glide('.ktf2021-news', { type: 'slider', perView: 2, focusAt: 'center', rewind: false, gap: 50, breakpoints: {
+		768: {
+		  perView: 1,
+		  peek: 50,
+		  gap: 10
+		}
+	  }}); glide.mount();</script>";
 
 	return $block_content;
 }
