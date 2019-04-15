@@ -28,6 +28,8 @@ function ktf2021_blocks_cgb_block_assets() {
 		array( 'wp-editor' ) // Dependency to include the CSS after it.
 		// filemtime( plugin_dir_path( __DIR__ ) . 'dist/blocks.style.build.css' ) // Version: filemtime — Gets file modification time.
 	);
+
+	wp_enqueue_script('GlidJS', 'https://cdn.jsdelivr.net/npm/@glidejs/glide');
 } // End function ktf2021_blocks_cgb_block_assets().
 
 // Hook: Frontend assets.

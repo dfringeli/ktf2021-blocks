@@ -163,8 +163,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 		);
 	}
 	
-	$block_content = '<script src="https://cdn.jsdelivr.net/npm/@glidejs/glide"></script>';
-	$block_content .= sprintf('<div class="%1$s"><div class="%2$s">
+	$block_content = sprintf('<div class="%1$s"><div class="%2$s">
 	<div class="text-center">%3$s</div>
 	<div class="ktf2021-news">
 		<div class="glide__track" data-glide-el="track">
