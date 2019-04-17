@@ -18,6 +18,7 @@ const {
 } = wp.data;
 
 const {
+	BaseControl,
 	PanelBody,
 	Placeholder,
 	QueryControls,
@@ -175,6 +176,23 @@ class LatestPostsBlock extends Component {
 							onChange={(value) => setAttributes({ newsArchiveButtonText: value })}
 						/>
 					}
+				</PanelBody>
+				<PanelBody>
+					<BaseControl>
+						<h3>
+							Info zum Letzte-Beiträge-Block
+						</h3>
+						<p>
+							Die Mobile- und Desktop-Ansicht für den Letzte-Beiträge-Block unterscheiden sich.
+						</p>
+						<p>
+							In der Mobile-Ansicht sind die Beiträge hintereinander von links nach rechts und lassen sich swipen.
+							Auf dem Laptop, PC und Desktop sind die Beiträge als Kacheln dargestellt.
+						</p>
+						<p>
+							Hier im Bearbeitungsmodus ist nur die Desktop-Ansicht unterstützt.
+						</p>
+					</BaseControl>
 				</PanelBody>
 			</InspectorControls>
 		);

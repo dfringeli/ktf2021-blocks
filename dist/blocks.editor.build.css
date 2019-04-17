@@ -1269,6 +1269,9 @@
     color: black; }
   .ktf2021-container-green a:hover {
     color: #969696; }
+
+.ktf2021-post {
+  max-width: 29%; }
 /**
  * #.# Common SCSS
  *

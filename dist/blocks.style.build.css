@@ -1288,10 +1288,17 @@
   .ktf2021-container-green a:hover {
     color: #969696; }
 
+.glide__slide .ktf2021-post {
+  min-width: 0;
+  max-width: none; }
+
 .ktf2021-post {
+  margin: 10px;
   padding: 10px;
   background-color: white;
-  color: black; }
+  color: black;
+  min-width: 250px;
+  max-width: 29%; }
   .ktf2021-post .ktf2021-post-image-link {
     margin-bottom: 15px; }
     .ktf2021-post .ktf2021-post-image-link .ktf2021-post-image {
@@ -1343,6 +1350,10 @@
   .ktf2021-button-squared .ktf2021-button-link:hover {
     background-color: #3ca6cd;
     color: white; }
+
+@media (max-width: 576px) {
+  .ktf2021-post {
+    min-width: 100%; } }
 /**
  * #.# Common SCSS
  *
