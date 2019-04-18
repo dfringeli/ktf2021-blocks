@@ -176,7 +176,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 	// Glide Mobile
 	$block_content .= sprintf('<div class="ktf2021-news-mobile d-sm-none">
 				<div class="glide__track" data-glide-el="track">
-					<ul class="glide__slides">
+					<ul class="glide__slides m-0">
 						%1$s
 					</ul>
 				</div>

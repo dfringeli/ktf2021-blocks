@@ -4,9 +4,9 @@
  * Can include things like variables and mixins
  * that are used across the project.
 */
-// Required Core Stylesheet
-@import "../node_modules/@glidejs/glide/src/assets/sass/glide.core.scss";
-@import "../node_modules/@glidejs/glide/src/assets/sass/glide.theme.scss";
+// required GlideJS Core Stylesheets
+@import "../assets/glidejs/glide.core.scss";
+@import "../assets/glidejs/glide.theme.scss";
 
 .wp-block {
     max-width: none;
@@ -36,6 +36,14 @@ $color__gray_light: rgb(192,192,192);
 
 $opacity__selected: 1;
 $opacity__unselected: .4;
+
+// Margins
+$size__sm: 576px;
+$size__md: 768px;
+$size__lg: 992px;
+$size__xl: 1200px;
+$size__xxl: 1400px;
+$size__xxxl: 1600px;
 
 /// Mobile
 .ktf2021-container-white,
