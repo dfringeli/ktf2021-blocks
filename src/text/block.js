@@ -9,11 +9,12 @@
 import './style.scss';
 import './editor.scss';
 
+import classnames from 'classnames';
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const {
 	RichText,
-	PlainText,
 	AlignmentToolbar,
 	BlockControls,
 	InspectorControls,
@@ -21,7 +22,8 @@ const {
 const {
 	PanelBody,
 	ToggleControl,
-	RangeControl } = wp.components;
+	RangeControl,
+	BaseControl } = wp.components;
 const { Fragment } = wp.element;
 
 
@@ -38,13 +40,13 @@ const { Fragment } = wp.element;
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'ktf2021/ktf2021-text', {
-	title: __( 'KTF2021 Text' ),
+registerBlockType('ktf2021/ktf2021-text', {
+	title: __('KTF2021 Text'),
 	icon: 'editor-paragraph',
 	category: 'ktf2021-blocks',
 	keywords: [
-		__( 'ktf2021' ),
-		__( 'Text' ),
+		__('ktf2021'),
+		__('Text'),
 	],
 
 	attributes: {
@@ -83,7 +85,7 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	edit: function( props ) {
+	edit: function (props) {
 		const { attributes: {
 			title,
 			content,
@@ -100,69 +102,85 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 			{ name: 'Blau', color: 'blue' },
 		];
 
-		function onChangeTitle( newTitle ) {
-			props.setAttributes( { title: newTitle === undefined ? '' : newTitle } );
+		function onChangeTitle(newTitle) {
+			props.setAttributes({ title: newTitle === undefined ? '' : newTitle });
 		}
 
-		function onChangeContent( newContent ) {
-			props.setAttributes( { content: newContent } );
+		function onChangeContent(newContent) {
+			props.setAttributes({ content: newContent });
 		}
 
-		function onChangeColumns( newColumns ) {
-			props.setAttributes( { columns: newColumns === undefined ? 2 : newColumns } );
+		function onChangeColumns(newColumns) {
+			props.setAttributes({ columns: newColumns === undefined ? 2 : newColumns });
 		}
 
-		function onChangeAlignment( newAlignment ) {
-			props.setAttributes( { alignment: newAlignment === undefined ? 'left' : newAlignment } );
+		function onChangeAlignment(newAlignment) {
+			props.setAttributes({ alignment: newAlignment === undefined ? 'left' : newAlignment });
 		}
 
-		function onChangeColor( newColor ) {
-			props.setAttributes( { color: newColor === undefined ? 'white' : newColor } );
+		function onChangeColor(newColor) {
+			props.setAttributes({ color: newColor === undefined ? 'white' : newColor });
 		}
 
-		function onChangeFadeIn( newFadeIn ) {
-			props.setAttributes( { fadeIn: newFadeIn === undefined ? true : newFadeIn } );
+		function onChangeFadeIn(newFadeIn) {
+			props.setAttributes({ fadeIn: newFadeIn === undefined ? true : newFadeIn });
 		}
+
+		const editorBlockClassNames = classnames("ktf2021-container-" + color);
 
 		return (
 			<Fragment>
 				<BlockControls>
-					<AlignmentToolbar value={ alignment } onChange={ onChangeAlignment } />
+					<AlignmentToolbar value={alignment} onChange={onChangeAlignment} />
 				</BlockControls>
-				<PlainText
-					tagName={ 'h2' }
-					value={ title }
-					onChange={ onChangeTitle }
-					placeholder={ "Titel..." }
-				/>
-				<RichText
-					className={ className }
-					style={ { textAlign: alignment } }
-					tagName="p"
-					onChange={ onChangeContent }
-					value={ content }
-					placeholder={ "Text..." }
-				/>
+				<div className={editorBlockClassNames}>
+					<RichText
+						tagName={'h2'}
+						value={title}
+						onChange={onChangeTitle}
+						placeholder={"Titel..."}
+					/>
+					<RichText
+						className={className}
+						style={{ textAlign: alignment }}
+						tagName="p"
+						onChange={onChangeContent}
+						value={content}
+						placeholder={"Text..."}
+					/>
+				</div>
 				<InspectorControls>
 					<PanelBody>
 						<ColorPalette
-							value={ color }
-							colors={ colors }
-							onChange={ onChangeColor }
-							label={ __( 'Hintergrundfarbe' ) }
+							value={color}
+							colors={colors}
+							onChange={onChangeColor}
+							label={__('Hintergrundfarbe')}
 						/>
 						<ToggleControl
-							checked={ fadeIn }
-							onChange={ onChangeFadeIn }
-							label={ "fade in effect" }
+							checked={fadeIn}
+							onChange={onChangeFadeIn}
+							label={'fade in effect'}
 						/>
 						<RangeControl
-								label={ __( 'Spalten' ) }
-								value={ columns }
-								onChange={ onChangeColumns }
-								min={ 1 }
-								max={ 3 }
+							label={__('Anzahl Spalten für die Aufteilung des Textes')}
+							value={columns}
+							onChange={onChangeColumns}
+							min={1}
+							max={3}
 						/>
+					</PanelBody>
+					<PanelBody>
+						<BaseControl>
+							<h3>Info</h3>
+							<p>
+								Die Aufteilung des Textes in die Anzahl Spalten wird hier im Bearbeitungsmodus nicht umgesetzt.
+								Wenn Du speicherst und Dir die Seite ansiehst, dann ist der Text aufgeteilt.
+							</p>
+							<p>
+								Die Aufteilung des Textes ist automatisch. Wenn Du die Aufteilung des Textes in Kontrolle haben willst, dann benütze den Block KTF Spalten. Dort kannst Du auch Text, Bilder, Buttons, Links und Videos kombinieren.
+							</p>
+						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
 			</Fragment>
@@ -177,19 +195,19 @@ registerBlockType( 'ktf2021/ktf2021-text', {
 	 *
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
-	save: function( props ) {
+	save: function (props) {
 		return (
-			<div className={`ktf2021-container-${ props.attributes.color }`}>
+			<div className={`ktf2021-container-${props.attributes.color}`}>
 				<div className={`ktf2021-content ${props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
-					<h2 className= {'ktf2021-text-title text-center'}>{props.attributes.title}</h2>
+					<h2 className={'ktf2021-text-title text-center'}>{props.attributes.title}</h2>
 					<RichText.Content
-						className={ `ktf2021-text text-${ props.attributes.alignment }` }
+						className={`ktf2021-text text-${props.attributes.alignment}`}
 						tagName='p'
-						style={ `column-count: ${ props.attributes.columns }` }
-						value={ props.attributes.content }
+						style={`column-count: ${props.attributes.columns}`}
+						value={props.attributes.content}
 					/>
 				</div>
 			</div>
 		);
 	},
-} );
+});
