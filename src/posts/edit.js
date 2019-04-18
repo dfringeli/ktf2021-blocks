@@ -95,7 +95,7 @@ class LatestPostsBlock extends Component {
 	}
 
 	render() {
-		const { attributes, categoriesList, setAttributes, latestPosts, isSelected } = this.props;
+		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
 		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, categories, postsToShow, readMoreText, displayNewsArchiveButton, newsArchiveButtonText } = attributes;
 
 		const colors = [

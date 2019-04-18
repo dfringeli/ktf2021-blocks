@@ -12,9 +12,6 @@ import './editor.scss';
 // Components
 const { __ } = wp.i18n;
 
-// Extend component
-const { Component } = wp.element;
-
 // Register block controls
 const {
 	registerBlockType,
