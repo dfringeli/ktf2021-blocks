@@ -250,6 +250,12 @@
  *
  * CSS for both Frontend+Backend.
  */
+.under-title {
+  font-family: "Futura", "Arial Narrow", Arial, Helvetica;
+  font-size: 2em !important;
+  font-style: italic;
+  padding: 0;
+  margin: 0; }
 /**
  * #.# Common SCSS
  *
@@ -505,37 +511,34 @@
 .wp-block-ktf2021-ktf2021-button.aligncenter.ktf2021-blocks-button-container {
   display: table; }
 
-.ktf2021-blocks-button-container .ktf2021-blocks-button {
-  padding: 10px;
-  transition: .5s;
-  -o-transition: .5s;
-  -ms-transition: .5s;
-  -moz-transition: .5s;
-  -webkit-transition: .5s; }
-
-.ktf2021-blocks-button-container .ktf2021-blocks-button-blue {
-  background-color: #00cfff;
-  color: white; }
-
-.ktf2021-blocks-button-container .ktf2021-blocks-button-blue:hover {
-  background-color: #3ca6cd;
-  color: white; }
-
-.ktf2021-blocks-button-container .ktf2021-blocks-button-green {
-  background-color: #a3d01e;
-  color: white; }
-
-.ktf2021-blocks-button-container .ktf2021-blocks-button-green:hover {
-  background-color: #8faf1c;
-  color: white; }
-
-.ktf2021-blocks-button-container .ktf2021-blocks-button-black {
-  background-color: black;
-  color: white; }
-
-.ktf2021-blocks-button-container .ktf2021-blocks-button-black:hover {
-  background-color: #2f3030;
-  color: white; }
+.ktf2021-blocks-button-container {
+  margin-top: 1em;
+  margin-bottom: 1em; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button {
+    padding: 10px;
+    transition: .5s;
+    -o-transition: .5s;
+    -ms-transition: .5s;
+    -moz-transition: .5s;
+    -webkit-transition: .5s; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button-blue {
+    background-color: #00cfff;
+    color: white; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button-blue:hover {
+    background-color: #3ca6cd;
+    color: white; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button-green {
+    background-color: #a3d01e;
+    color: white; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button-green:hover {
+    background-color: #8faf1c;
+    color: white; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button-black {
+    background-color: black;
+    color: white; }
+  .ktf2021-blocks-button-container .ktf2021-blocks-button-black:hover {
+    background-color: #2f3030;
+    color: white; }
 /**
  * #.# Common SCSS
  *

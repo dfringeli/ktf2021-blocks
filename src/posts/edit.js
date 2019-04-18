@@ -184,13 +184,12 @@ class LatestPostsBlock extends Component {
 						</h3>
 						<p>
 							Die Mobile- und Desktop-Ansicht für den Letzte-Beiträge-Block unterscheiden sich.
-						</p>
-						<p>
 							In der Mobile-Ansicht sind die Beiträge hintereinander von links nach rechts und lassen sich swipen.
 							Auf dem Laptop, PC und Desktop sind die Beiträge als Kacheln dargestellt.
+							Hier im Bearbeitungsmodus ist nur die Desktop-Ansicht unterstützt.
 						</p>
 						<p>
-							Hier im Bearbeitungsmodus ist nur die Desktop-Ansicht unterstützt.
+							Die News werden nur dargestellt. Wenn Du gespeichert hast, dann kann man auf der normalen Website die News anklicken.
 						</p>
 					</BaseControl>
 				</PanelBody>

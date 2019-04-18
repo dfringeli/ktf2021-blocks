@@ -157,7 +157,7 @@ registerBlockType('ktf2021/ktf2021-columns', {
 							max={3}
 						/>
 						<SelectControl
-							label="Vertikale Ausrichtung"
+							label="Vertikale Ausrichtung, des Inhalts einer Spalte, wenn die Spalten nicht gleich hoch sind"
 							value={verticalAlignment}
 							options={[
 								{ label: 'Oben', value: 'start' },
@@ -166,6 +166,19 @@ registerBlockType('ktf2021/ktf2021-columns', {
 							]}
 							onChange={onChangeVerticalAlignment}
 						/>
+					</PanelBody>
+					<PanelBody>
+						<h3>Info</h3>
+						<p>
+							Mit dem Block KTF Spalten kannst Du sehr flexibel Inhalt kombinieren.
+							Text, Bilder, Buttons Videos, Links, Einbetten von Facebook, Instagram und YouTube Beiträgen - Pass auf, dass es nicht zu viel wird!
+						</p>
+						<p>
+							In der Mobile Ansicht sind die Spalten untereinander.
+						</p>
+						<p>
+							Hier im Bearbeitungsmodus haben die Spalten einen schwarzen Rand, der die Spalten besser sichtbar machen soll. Keine Angst, auf der normalen Website sind sie dann schon weg.
+						</p>
 					</PanelBody>
 				</InspectorControls>
 				<div className={editorBlockClassNames}>

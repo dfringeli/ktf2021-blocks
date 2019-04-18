@@ -9,6 +9,8 @@
 import './style.scss';
 import './editor.scss';
 
+import classnames from 'classnames';
+
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
 const {
@@ -36,13 +38,13 @@ const { Fragment } = wp.element;
  * @return {?WPBlock}          The block, if it has been successfully
  *                             registered; otherwise `undefined`.
  */
-registerBlockType( 'ktf2021/ktf2021-banner', {
-	title: __( 'KTF2021 Banner' ),
+registerBlockType('ktf2021/ktf2021-banner', {
+	title: __('KTF2021 Banner'),
 	icon: 'editor-quote',
 	category: 'ktf2021-blocks',
 	keywords: [
-		__( 'ktf2021' ),
-		__( 'Banner' ),
+		__('ktf2021'),
+		__('Banner'),
 	],
 
 	attributes: {
@@ -69,7 +71,7 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 	 * The edit function describes the structure of your block in the context of the editor.
 	 * This represents what the editor will render when the block is used.
 	 */
-	edit: function( props ) {
+	edit: function (props) {
 		const { attributes: {
 			content,
 			alignment,
@@ -84,46 +86,50 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 			{ name: 'Blau', color: 'blue' },
 		];
 
-		function onChangeContent( newContent ) {
-			props.setAttributes( { content: newContent } );
+		function onChangeContent(newContent) {
+			props.setAttributes({ content: newContent });
 		}
 
-		function onChangeAlignment( newAlignment ) {
-			props.setAttributes( { alignment: newAlignment === undefined ? 'center' : newAlignment } );
+		function onChangeAlignment(newAlignment) {
+			props.setAttributes({ alignment: newAlignment === undefined ? 'center' : newAlignment });
 		}
 
-		function onChangeColor( newColor ) {
-			props.setAttributes( { color: newColor === undefined ? 'white' : newColor } );
+		function onChangeColor(newColor) {
+			props.setAttributes({ color: newColor === undefined ? 'white' : newColor });
 		}
 
-		function onChangeFadeIn( newFadeIn ) {
-			props.setAttributes( { fadeIn: newFadeIn === undefined ? true : newFadeIn } );
+		function onChangeFadeIn(newFadeIn) {
+			props.setAttributes({ fadeIn: newFadeIn === undefined ? true : newFadeIn });
 		}
+
+		const editorBlockClassNames = classnames("ktf2021-container-" + color, className);
 
 		return (
 			<Fragment>
 				<BlockControls>
-					<AlignmentToolbar value={ alignment } onChange={ onChangeAlignment } />
+					<AlignmentToolbar value={alignment} onChange={onChangeAlignment} />
 				</BlockControls>
-				<RichText
-					className={ className }
-					style={ { textAlign: alignment } }
-					tagName="p"
-					onChange={ onChangeContent }
-					value={ content }
-				/>
+				<div className={editorBlockClassNames}>
+					<RichText
+						className={'under-title'}
+						style={{ textAlign: alignment }}
+						tagName="p"
+						onChange={onChangeContent}
+						value={content}
+					/>
+				</div>
 				<InspectorControls>
 					<PanelBody>
 						<h4>Farbe</h4>
 						<ColorPalette
-							value={ color }
-							colors={ colors }
-							onChange={ onChangeColor } />
-						<hr style={ { marginTop: '2.5em'} } />
+							value={color}
+							colors={colors}
+							onChange={onChangeColor} />
+						<hr style={{ marginTop: '2.5em' }} />
 						<ToggleControl
-							checked={ fadeIn }
-							onChange={ onChangeFadeIn }
-							label={ "fade in effect" } />
+							checked={fadeIn}
+							onChange={onChangeFadeIn}
+							label={"fade in effect"} />
 					</PanelBody>
 				</InspectorControls>
 			</Fragment>
@@ -134,18 +140,23 @@ registerBlockType( 'ktf2021/ktf2021-banner', {
 	 * The save function defines the way in which the different attributes should be combined
 	 * into the final markup, which is then serialized by Gutenberg into post_content.
 	 */
-	save: function( props ) {
+	save: function (props) {
+		const { attributes: {
+			content,
+			alignment,
+			color,
+			fadeIn,
+		} } = props;
 		return (
-			<div className={`ktf2021-container-${ props.attributes.color }`}>
-				<div className={`ktf2021-content${ props.attributes.fadeIn ? ' ktf2021-reveal' : ''}`}>
+			<div className={classnames('ktf2021-container-' + color)}>
+				<div className={classnames('ktf2021-content', fadeIn ? ' ktf2021-reveal' : '')}>
 					<RichText.Content
-						className={ '' }
-						className={ `under-title text-${ props.attributes.alignment }` }
+						className={classnames('under-title', 'text-' + alignment)}
 						tagName="p"
-						value={ props.attributes.content }
+						value={content}
 					/>
 				</div>
 			</div>
 		);
 	},
-} );
+});
