@@ -101,7 +101,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 				$excerpt = apply_filters( 'the_excerpt', get_post_field( 'post_excerpt', $post_id, 'display' ) );
 
 				if( empty( $excerpt ) ) {
-					$excerpt = apply_filters( 'the_excerpt', wp_trim_words( $post->post_content, 55 ) );
+					$excerpt = apply_filters( 'the_excerpt', wp_trim_words( $post->post_content, 30 ) );
 				}
 
 				if ( ! $excerpt ) {
@@ -189,8 +189,8 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 	$block_content .= "<script>var glide = new Glide('.ktf2021-news-mobile', { type: 'slider', perView: 2, focusAt: 'center', rewind: false, gap: 50, breakpoints: {
 		768: {
 		  perView: 1,
-		  peek: 50,
-		  gap: 10
+		  peek: { before: 0, after: 50 },
+		  gap: 0
 		}
 		}}); glide.mount();</script>";
 		

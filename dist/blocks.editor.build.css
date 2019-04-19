@@ -105,7 +105,7 @@
   .glide__arrow--disabled {
     opacity: 0.33; }
   .glide__arrow--left {
-    left: 0.5vw; }
+    left: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--left {
       left: 3.5vw; } }
@@ -119,7 +119,7 @@
     .glide__arrow--left {
       left: 20vw; } }
   .glide__arrow--right {
-    right: 0.5vw; }
+    right: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--right {
       right: 3.5vw; } }
@@ -357,7 +357,7 @@
   .glide__arrow--disabled {
     opacity: 0.33; }
   .glide__arrow--left {
-    left: 0.5vw; }
+    left: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--left {
       left: 3.5vw; } }
@@ -371,7 +371,7 @@
     .glide__arrow--left {
       left: 20vw; } }
   .glide__arrow--right {
-    right: 0.5vw; }
+    right: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--right {
       right: 3.5vw; } }
@@ -611,7 +611,7 @@
   .glide__arrow--disabled {
     opacity: 0.33; }
   .glide__arrow--left {
-    left: 0.5vw; }
+    left: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--left {
       left: 3.5vw; } }
@@ -625,7 +625,7 @@
     .glide__arrow--left {
       left: 20vw; } }
   .glide__arrow--right {
-    right: 0.5vw; }
+    right: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--right {
       right: 3.5vw; } }
@@ -863,7 +863,7 @@
   .glide__arrow--disabled {
     opacity: 0.33; }
   .glide__arrow--left {
-    left: 0.5vw; }
+    left: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--left {
       left: 3.5vw; } }
@@ -877,7 +877,7 @@
     .glide__arrow--left {
       left: 20vw; } }
   .glide__arrow--right {
-    right: 0.5vw; }
+    right: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--right {
       right: 3.5vw; } }
@@ -1126,7 +1126,7 @@
   .glide__arrow--disabled {
     opacity: 0.33; }
   .glide__arrow--left {
-    left: 0.5vw; }
+    left: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--left {
       left: 3.5vw; } }
@@ -1140,7 +1140,7 @@
     .glide__arrow--left {
       left: 20vw; } }
   .glide__arrow--right {
-    right: 0.5vw; }
+    right: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--right {
       right: 3.5vw; } }
@@ -1371,7 +1371,7 @@
   .glide__arrow--disabled {
     opacity: 0.33; }
   .glide__arrow--left {
-    left: 0.5vw; }
+    left: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--left {
       left: 3.5vw; } }
@@ -1385,7 +1385,7 @@
     .glide__arrow--left {
       left: 20vw; } }
   .glide__arrow--right {
-    right: 0.5vw; }
+    right: 2vw; }
   @media (min-width: 768px) {
     .glide__arrow--right {
       right: 3.5vw; } }

@@ -2,7 +2,6 @@
 
 .glide__slide {
   .ktf2021-post {
-    min-width: 0;
     max-width: none;
   }
 }
@@ -88,11 +87,5 @@
   .ktf2021-button-link:hover {
     background-color: $color__blue_hover;
     color: $color__white;
-  }
-}
-
-@media (max-width: 576px) {
-  .ktf2021-post {
-    min-width: 100%; // Full wide on mobile
   }
 }
