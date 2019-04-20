@@ -1347,6 +1347,11 @@
   .ktf2021-button-squared .ktf2021-button-link:hover {
     background-color: #3ca6cd;
     color: white; }
+
+@media (max-width: 576px) {
+  .no-x-indent-sm {
+    padding-left: 0 !important;
+    padding-right: 0 !important; } }
 /**
  * #.# Common SCSS
  *

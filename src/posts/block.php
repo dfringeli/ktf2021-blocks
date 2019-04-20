@@ -140,7 +140,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 		$class .= ' ' . $attributes['className'];
 	}
 
-	$content_class = 'ktf2021-content';
+	$content_class = 'ktf2021-content no-x-indent-sm';
 
 	if ( isset( $attributes['fadeIn'] ) && $attributes['fadeIn'] ) {
 		$content_class .= ' ktf2021-reveal';
@@ -189,7 +189,7 @@ function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 	$block_content .= "<script>var glide = new Glide('.ktf2021-news-mobile', { type: 'slider', perView: 2, focusAt: 'center', rewind: false, gap: 50, breakpoints: {
 		768: {
 		  perView: 1,
-		  peek: { before: 0, after: 50 },
+		  peek: 30,
 		  gap: 0
 		}
 		}}); glide.mount();</script>";
