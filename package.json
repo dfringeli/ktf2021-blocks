@@ -13,6 +13,7 @@
     "classnames": "^2.2.6",
     "memize": "^1.0.5",
     "moment": "^2.24.0",
+    "react-script-tag": "^1.1.2",
     "times": "^0.1.3"
   }
 }

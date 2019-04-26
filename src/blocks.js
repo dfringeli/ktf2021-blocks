@@ -18,3 +18,4 @@ import './columns/block.js';
 
 import './posts/block.js';
 import './spacer/block.js';
+import './slider/block.js';
