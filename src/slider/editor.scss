@@ -1,0 +1,41 @@
+.ktf2021-slider {
+  &.glide--swipeable {
+    cursor: default;
+  }
+
+  ul {
+    list-style-type: none !important;
+
+    li {
+      margin: 0;
+
+      .ktf2021-slide-container {
+        padding: 10px;
+        border: 1px solid black;
+
+        h3 {
+          margin-bottom: 0;
+        }
+      }
+    }
+  }
+
+  .glide__arrows {
+    .glide__arrow {
+      &.glide__arrow--left {
+        left: 2vw;
+      }
+
+      &.glide__arrow--right {
+        right: 2vw;
+      }
+    }
+  }
+
+  .glide__bullets {
+    .glide__bullet {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}

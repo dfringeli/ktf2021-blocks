@@ -11,14 +11,11 @@ import './editor.scss';
 
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
-const {
-	registerBlockType } = wp.blocks;
+const {	registerBlockType } = wp.blocks;
 const {
 	RichText,
 	MediaUpload, MediaUploadCheck,
 	InspectorControls,
-	AlignmentToolbar,
-	BlockControls,
 	ColorPalette } = wp.editor;
 const {
 	G, Path, SVG,

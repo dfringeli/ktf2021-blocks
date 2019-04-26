@@ -1,0 +1,40 @@
+.ktf2021-slider {
+  &.glide--swipeable {
+    cursor: default;
+  }
+
+  ul {
+    margin: 0;
+
+    li {
+      margin: 0;
+    }
+
+    .ktf2021-slide-image-container {
+      position: relative;
+      overflow: hidden;
+      height: 200px;
+      width: 100%;
+
+      .ktf2021-slide-image {
+        top: 50%;
+        left: 50%;
+        position: relative;
+        transform: translate(-50%, -50%);
+      }
+    }
+
+    @media (min-width: $size__lg) {
+      .ktf2021-slide-image-container {
+        height: 500px;
+      }
+    }
+  }
+
+  .glide__bullets {
+    .glide__bullet {
+      width: 16px;
+      height: 16px;
+    }
+  }
+}
