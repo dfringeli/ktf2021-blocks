@@ -270,7 +270,7 @@ registerBlockType('ktf2021/ktf2021-slider', {
 							</div>
 						</div>
 					</div>
-					<ScriptTag type="text/javascript" src="./wp-content/plugins/ktf2021-blocks/src/slider/mountslider.js" />
+					<ScriptTag type="text/javascript" src="https://ktf21.ch/wp-content/plugins/ktf2021-blocks/src/slider/mountslider.js" />
 				</div>
 			);
 		} else {
