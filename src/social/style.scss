@@ -1,0 +1,46 @@
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.wp-block-ktf2021-ktf2021-social {
+  .fab {
+    transition: 0.5s;
+    -o-transition: 0.5s;
+    -ms-transition: 0.5s;
+    -moz-transition: 0.5s;
+    -webkit-transition: 0.5s;
+  }
+
+  .fa-facebook-square {
+    color: #3b5998;
+
+    &:hover {
+      color: #3b58987F;
+    }
+  }
+
+  .fa-instagram {
+    color: #8a3ab9;
+
+    &:hover {
+      color: #8a3ab97F;
+    }
+  }
+
+  .fa-youtube {
+      color: #FF0000;
+
+      &:hover {
+          color: #FF00007F;
+      }
+  }
+
+  .fa-flickr {
+      color: #ff0084;      
+
+      &:hover {
+          color: #ff00847F;
+      }
+  }
+}

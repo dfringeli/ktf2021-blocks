@@ -12,10 +12,9 @@
 import './banner/block.js';
 import './button/block.js';
 import './text/block.js';
-
 import './columns/column.js';
 import './columns/block.js';
-
 import './posts/block.js';
 import './spacer/block.js';
 import './slider/block.js';
+import './social/block.js';

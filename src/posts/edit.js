@@ -13,9 +13,7 @@ const { __ } = wp.i18n;
 
 const { decodeEntities } = wp.htmlEntities;
 
-const {
-	withSelect,
-} = wp.data;
+const { withSelect } = wp.data;
 
 const {
 	BaseControl,
