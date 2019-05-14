@@ -21,6 +21,10 @@ if ( ! defined( 'ABSPATH' ) ) {
  * @since 1.0.0
  */
 function ktf2021_blocks_cgb_block_assets() {
+
+	// Font Awesome
+	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.8.2/css/all.css');
+	
 	// Styles.
 	wp_enqueue_style(
 		'ktf2021_blocks-cgb-style-css', // Handle.
@@ -54,6 +58,9 @@ function ktf2021_blocks_cgb_editor_assets() {
 
 	// GlideJS
 	wp_enqueue_script('GlideJS', 'https://cdn.jsdelivr.net/npm/@glidejs/glide');
+
+	// Font Awesome
+	wp_enqueue_style('fontawesome', 'https://use.fontawesome.com/releases/v5.8.2/css/all.css');
 	
 	// Scripts.
 	wp_enqueue_script(
