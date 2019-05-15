@@ -18,4 +18,4 @@ import './posts/block.js';
 import './spacer/block.js';
 import './slider/block.js';
 import './social/block.js';
-import './collapse/block.js';
+// import './collapse/block.js';
