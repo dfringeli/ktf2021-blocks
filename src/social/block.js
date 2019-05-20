@@ -154,7 +154,7 @@ registerBlockType('ktf2021/ktf2021-social', {
 		if (facebook != '') {
 			facebookButton = (
 				<a href={facebook} target="_blank" rel="noopener noreferrer">
-					<i className={"fab fa-facebook-square fa-3x"}></i>
+					<i className={"fab fa-facebook-square ktf2021-fa-size"}></i>
 				</a>
 			);
 		}
@@ -163,7 +163,7 @@ registerBlockType('ktf2021/ktf2021-social', {
 		if (instagram != '') {
 			instagramButton = (
 				<a href={instagram} target="_blank" rel="noopener noreferrer">
-					<i className={"fab fa-instagram fa-3x"}></i>
+					<i className={"fab fa-instagram ktf2021-fa-size"}></i>
 				</a>
 			);
 		}
@@ -172,7 +172,7 @@ registerBlockType('ktf2021/ktf2021-social', {
 		if (youtube != '') {
 			youtubeButton = (
 				<a href={youtube} target="_blank" rel="noopener noreferrer">
-					<i className={"fab fa-youtube fa-3x"}></i>
+					<i className={"fab fa-youtube ktf2021-fa-size"}></i>
 				</a>
 			);
 		}
@@ -181,7 +181,7 @@ registerBlockType('ktf2021/ktf2021-social', {
 		if (flickr != '') {
 			flickrButton = (
 				<a href={flickr} target="_blank" rel="noopener noreferrer">
-					<i className={"fab fa-flickr fa-3x"}></i>
+					<i className={"fab fa-flickr ktf2021-fa-size"}></i>
 				</a>
 			);
 		}

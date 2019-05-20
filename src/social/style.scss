@@ -12,11 +12,22 @@
     -webkit-transition: 0.5s;
   }
 
+  .ktf2021-fa-size {
+    font-size: 3em;
+  }
+
+  /// PC
+  @media (min-width: $size__lg) {
+    .ktf2021-fa-size {
+      font-size: 5em;
+    }
+  }
+
   .fa-facebook-square {
     color: #3b5998;
 
     &:hover {
-      color: #3b58987F;
+      color: #3b58987f;
     }
   }
 
@@ -24,23 +35,23 @@
     color: #8a3ab9;
 
     &:hover {
-      color: #8a3ab97F;
+      color: #8a3ab97f;
     }
   }
 
   .fa-youtube {
-      color: #FF0000;
+    color: #ff0000;
 
-      &:hover {
-          color: #FF00007F;
-      }
+    &:hover {
+      color: #ff00007f;
+    }
   }
 
   .fa-flickr {
-      color: #ff0084;      
+    color: #ff0084;
 
-      &:hover {
-          color: #ff00847F;
-      }
+    &:hover {
+      color: #ff00847f;
+    }
   }
 }
