@@ -2133,22 +2133,29 @@
   -moz-transition: 0.5s;
   -webkit-transition: 0.5s; }
 
+.wp-block-ktf2021-ktf2021-social .ktf2021-fa-size {
+  font-size: 3em; }
+
+@media (min-width: 992px) {
+  .wp-block-ktf2021-ktf2021-social .ktf2021-fa-size {
+    font-size: 5em; } }
+
 .wp-block-ktf2021-ktf2021-social .fa-facebook-square {
   color: #3b5998; }
   .wp-block-ktf2021-ktf2021-social .fa-facebook-square:hover {
-    color: #3b58987F; }
+    color: #3b58987f; }
 
 .wp-block-ktf2021-ktf2021-social .fa-instagram {
   color: #8a3ab9; }
   .wp-block-ktf2021-ktf2021-social .fa-instagram:hover {
-    color: #8a3ab97F; }
+    color: #8a3ab97f; }
 
 .wp-block-ktf2021-ktf2021-social .fa-youtube {
-  color: #FF0000; }
+  color: #ff0000; }
   .wp-block-ktf2021-ktf2021-social .fa-youtube:hover {
-    color: #FF00007F; }
+    color: #ff00007f; }
 
 .wp-block-ktf2021-ktf2021-social .fa-flickr {
   color: #ff0084; }
   .wp-block-ktf2021-ktf2021-social .fa-flickr:hover {
-    color: #ff00847F; }
+    color: #ff00847f; }
