@@ -51,10 +51,6 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 			type: 'string',
 			default: ''
 		},
-		buttonColor: {
-			type: 'string',
-			default: 'green'
-		},
 		content: {
 			source: "query",
 			default: [],
@@ -88,13 +84,7 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function (props) {
-		const { attributes: { title, buttonColor, content }, setAttributes, className } = props;
-
-		const colors = [
-			{ name: 'Schwarz', color: 'black' },
-			{ name: 'Grün', color: 'green' },
-			{ name: 'Blau', color: 'blue' },
-		];
+		const { attributes: { title, content }, setAttributes, className } = props;
 
 		if (content.length == 0) {
 			setAttributes({
@@ -217,16 +207,11 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 					>Hinzufügen</button>
 				</div>
 				<InspectorControls>
-					<PanelBody title={__('Button Colors')}>
-						<ColorPalette
-							value={buttonColor}
-							colors={colors}
-							onChange={(value) => setAttributes({ buttonColor: value })} />
-					</PanelBody>
 					<PanelBody>
 						<BaseControl>
 							<b>Info</b>
-							<p>Die Farbe der Buttons kann ausgewählt werden - Die Farbe des Hintergrunds nicht, die ist immer weiss</p>
+							<p>Die Farbe der Buttons ist immer grün - Die Farbe eines ausgewählten Buttons immer blau</p>
+							<p>Die Farbe des Hintergrunds ist immer weiss</p>
 							<p>Die Buttons sind hier im Bearbeitungsmodus nicht dargestellt.</p>
 							<p>Verwende diesen Collapse-Block bitte nur mit minimum 3 Inhalten</p>
 							<p>Auf dem PC ist der Inhalt rechts von den Buttons - auf dem Smartphone ist der Inhalt direkt unter dem Button</p>
@@ -246,7 +231,7 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: function (props) {
-		const { attributes: { title, buttonColor, content } } = props;
+		const { attributes: { title, content } } = props;
 
 		if (content.length > 0) {
 
@@ -254,7 +239,7 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 				.map(c => {
 					return (
 						<div className={"m-2"} key={c.index}>
-							<button className={"ktf2021-button " + buttonColor} type="button" data-toggle="collapse" data-target={"#ktf2021-content-desktop-" + c.index} aria-expanded={c.index == 0} aria-controls={"#ktf2021-content-desktop-" + c.index}>
+							<button className={"ktf2021-button green"} type="button" data-toggle="collapse" data-target={"#ktf2021-content-desktop-" + c.index} aria-expanded={c.index == 0} aria-controls={"#ktf2021-content-desktop-" + c.index}>
 								<RichText.Content className={"m-0"} tagName="h3" value={c.title} />
 							</button>
 						</div>
@@ -266,7 +251,7 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 					const showRendered = c.index == 0 ? ' show' : '';
 					return (
 						<div className={"collapse" + showRendered} key={c.index} id={"ktf2021-content-desktop-" + c.index} data-parent="#ktf2021-collapse-desktop">
-							<div className={'ktf2021-collapse-content-desktop border'}>
+							<div className={'ktf2021-collapse-content-desktop'}>
 								<RichText.Content className={"ktf2021-collapse-title-desktop"} tagName="h3" value={c.title} data-index={c.index} />
 								<RichText.Content className={"ktf2021-collapse-text-desktop"} tagName="p" value={c.text} />
 							</div>
@@ -279,7 +264,7 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 					const showRendered = c.index == 0 ? ' show' : '';
 					return (
 						<div className={"m-2"} key={c.index}>
-							<button className={"ktf2021-button btn-block " + buttonColor} type="button" data-toggle="collapse" data-target={"#ktf2021-content-mobile-" + c.index} aria-expanded={c.index == 0} aria-controls={"#ktf2021-content-mobile-" + c.index}>
+							<button className={"ktf2021-button btn-block green"} type="button" data-toggle="collapse" data-target={"#ktf2021-content-mobile-" + c.index} aria-expanded={c.index == 0} aria-controls={"#ktf2021-content-mobile-" + c.index}>
 								<RichText.Content className={"m-0"} tagName="h3" value={c.title} />
 							</button>
 							<div className={"collapse" + showRendered} id={"ktf2021-content-mobile-" + c.index} data-parent="#ktf2021-collapse-mobile">
@@ -299,10 +284,10 @@ registerBlockType('ktf2021/ktf2021-collapse', {
 						{titleRender}
 						<div className={"d-none d-lg-block"}>
 							<div className={"accordion d-flex"} id={"ktf2021-collapse-desktop"}>
-								<div className={"d-flex flex-column justify-content-between align-items-stretch"}>
+								<div className={"d-flex flex-column w-50"}>
 									{desktopButtons}
 								</div>
-								<div className={"flex-fill"}>
+								<div className={"w-50"}>
 									{desktopContent}
 								</div>
 							</div>

@@ -244,37 +244,6 @@
   .ktf2021-container-green a:hover {
     color: #969696; }
 
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
-
 /**
  * #.# Styles
  *
@@ -531,37 +500,6 @@
     color: black; }
   .ktf2021-container-green a:hover {
     color: #969696; }
-
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
 
 /**
  * #.# Styles
@@ -845,37 +783,6 @@
   .ktf2021-container-green a:hover {
     color: #969696; }
 
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
-
 /**
  * #.# Styles
  *
@@ -1131,37 +1038,6 @@
   .ktf2021-container-green a:hover {
     color: #969696; }
 
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
-
 .wp-block-ktf2021-ktf2021-columns ul {
   margin: 0; }
 /**
@@ -1409,37 +1285,6 @@
     color: black; }
   .ktf2021-container-green a:hover {
     color: #969696; }
-
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
 
 .glide__slide .ktf2021-post {
   max-width: none; }
@@ -1753,37 +1598,6 @@
   .ktf2021-container-green a:hover {
     color: #969696; }
 
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
-
 /**
  * #.# Styles
  *
@@ -2034,37 +1848,6 @@
     color: black; }
   .ktf2021-container-green a:hover {
     color: #969696; }
-
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
 
 .ktf2021-slider.glide--swipeable {
   cursor: default; }
@@ -2337,37 +2120,6 @@
     color: black; }
   .ktf2021-container-green a:hover {
     color: #969696; }
-
-.ktf2021-button {
-  border-radius: 0;
-  border-width: 0;
-  cursor: pointer;
-  white-space: nowrap;
-  transition: 0.5s;
-  -o-transition: 0.5s;
-  -ms-transition: 0.5s;
-  -moz-transition: 0.5s;
-  -webkit-transition: 0.5s; }
-  .ktf2021-button .span {
-    padding: 12px 24px; }
-  .ktf2021-button.blue {
-    background-color: #00cfff;
-    color: white; }
-  .ktf2021-button.blue:hover {
-    background-color: #3ca6cd;
-    color: white; }
-  .ktf2021-button.green {
-    background-color: #a3d01e;
-    color: white; }
-  .ktf2021-button.green:hover {
-    background-color: #8faf1c;
-    color: white; }
-  .ktf2021-button.black {
-    background-color: black;
-    color: white; }
-  .ktf2021-button.black:hover {
-    background-color: #2f3030;
-    color: white; }
 
 /**
  * #.# Styles
@@ -2653,6 +2405,15 @@
   .ktf2021-container-green a:hover {
     color: #969696; }
 
+/**
+ * #.# Styles
+ *
+ * CSS for both Frontend+Backend.
+ */
+.ktf2021-collapse-content-desktop,
+.ktf2021-collapse-content-mobile {
+  padding: 10px; }
+
 .ktf2021-button {
   border-radius: 0;
   border-width: 0;
@@ -2674,6 +2435,12 @@
   .ktf2021-button.green {
     background-color: #a3d01e;
     color: white; }
+    .ktf2021-button.green[aria-expanded=true] {
+      background-color: #00cfff;
+      color: white; }
+    .ktf2021-button.green[aria-expanded=true]:hover {
+      background-color: #3ca6cd;
+      color: white; }
   .ktf2021-button.green:hover {
     background-color: #8faf1c;
     color: white; }
@@ -2683,12 +2450,3 @@
   .ktf2021-button.black:hover {
     background-color: #2f3030;
     color: white; }
-
-/**
- * #.# Styles
- *
- * CSS for both Frontend+Backend.
- */
-.ktf2021-collapse-content-desktop,
-.ktf2021-collapse-content-mobile {
-  padding: 10px; }
