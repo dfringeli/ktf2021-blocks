@@ -504,6 +504,9 @@
  */
 .ktf2021-blocks-button-container {
   display: inline-block; }
+
+.editor-url-input input[type="text"] {
+  width: 100% !important; }
 /**
  * #.# Common SCSS
  *

@@ -11,16 +11,18 @@ import './editor.scss';
 
 const { __ } = wp.i18n;
 const { Fragment } = wp.element;
-const {	registerBlockType } = wp.blocks;
+const { registerBlockType } = wp.blocks;
 const {
 	RichText,
 	MediaUpload, MediaUploadCheck,
 	InspectorControls,
+	URLInput,
 	ColorPalette } = wp.editor;
 const {
 	G, Path, SVG,
 	Button,
 	SelectControl,
+	BaseControl,
 	PanelBody } = wp.components;
 
 const colors = [
@@ -60,24 +62,29 @@ registerBlockType('ktf2021/ktf2021-button', {
 			type: 'string',
 			default: 'blue'
 		},
-
 		text: {
 			type: 'string',
 			source: 'html',
 			selector: 'a',
+			default: ''
 		},
 		url: {
 			type: 'string',
 			source: 'attribute',
 			selector: 'a',
 			attribute: 'href',
+			default: ''
 		},
 		mediaTitle: {
-			type: 'string'
+			type: 'string',
+			default: ''
 		},
 		behavior: {
+			type: 'string'
+		},
+		buttonFunction: {
 			type: 'string',
-			default: 'download'
+			default: 'file'
 		}
 	},
 
@@ -98,6 +105,7 @@ registerBlockType('ktf2021/ktf2021-button', {
 			mediaTitle,
 			color,
 			behavior,
+			buttonFunction
 		} = attributes;
 
 		return (
@@ -120,35 +128,88 @@ registerBlockType('ktf2021/ktf2021-button', {
 								label={__('Button-Farbe')}
 							/>
 						</PanelBody>
-						<PanelBody title="Datei">
-							<MediaUploadCheck>
-								<MediaUpload
-									onSelect={(media) => { setAttributes({ url: media.url }); setAttributes({ mediaTitle: media.title }) }}
-									value={url}
-									render={({ open }) => (
-										<div>
-											<div>
-												<Button isDefault onClick={open}>Datei wählen</Button>
-											</div>
-											<div>
-												<span>Aktuelle Datei: {mediaTitle ? mediaTitle : "Keine ausgewählt"}</span>
-											</div>
-										</div>
-									)}
-								/>
-							</MediaUploadCheck>
-							<br />
+						<PanelBody title="Button-Funktion">
+							<BaseControl>
+								Du kannst die Funktion des Buttons wählen und zwar zwischen:
+								<ul>
+									<li>  - Datei: Es ist eine Datei zum Herunterladen oder anzeigen hinterlegt</li>
+									<li>  - Seite: Der Button verlinkt auf eine andere Seite</li>
+								</ul>
+							</BaseControl>
 							<SelectControl
-								label={__('Verhalten, wenn der Button gedrückt wird:')}
-								value={behavior}
-								onChange={(selection) => { setAttributes({ behavior: selection }) }}
+								label={__('Button-Funktion:')}
+								value={buttonFunction}
+								onChange={(selection) => {
+									setAttributes({ url: '' });
+									if (buttonFunction === 'file' && selection === 'site') {
+										setAttributes({ mediaTitle: '' });
+										if (behavior === 'download') {
+											setAttributes({ behavior: 'currentTab' });
+										}
+									}
+									setAttributes({ buttonFunction: selection });
+
+								}}
 								options={[
-									{ value: 'newTab', label: 'Datei in neuem Tab öffnen' },
-									{ value: 'currentTab', label: 'Datei im aktuellen Tab öffnen' },
-									{ value: 'download', label: 'Datei herunterladen' },
+									{ value: 'file', label: 'Datei' },
+									{ value: 'site', label: 'Seite' }
 								]}
 							/>
 						</PanelBody>
+
+						{buttonFunction === 'file' &&
+
+							<PanelBody title="Datei">
+								<MediaUploadCheck>
+									<MediaUpload
+										onSelect={(media) => { setAttributes({ url: media.url }); setAttributes({ mediaTitle: media.title }) }}
+										value={url}
+										render={({ open }) => (
+											<div>
+												<div>
+													<Button isDefault onClick={open}>Datei wählen</Button>
+												</div>
+												<div>
+													<span>Aktuelle Datei: {mediaTitle ? mediaTitle : "Keine ausgewählt"}</span>
+												</div>
+											</div>
+										)}
+									/>
+								</MediaUploadCheck>
+								<br />
+								<SelectControl
+									label={__('Verhalten, wenn der Button gedrückt wird:')}
+									value={behavior}
+									onChange={(selection) => { setAttributes({ behavior: selection }) }}
+									options={[
+										{ value: 'newTab', label: 'Datei in neuem Tab öffnen' },
+										{ value: 'currentTab', label: 'Datei im aktuellen Tab öffnen' },
+										{ value: 'download', label: 'Datei herunterladen' },
+									]}
+								/>
+							</PanelBody>
+						}
+
+						{buttonFunction === 'site' &&
+							<PanelBody title="Seite">
+								<URLInput
+									value={url}
+									autoFocus={false}
+									onChange={(value) => setAttributes({ url: value })} />
+								<br />
+								<SelectControl
+									label={__('Verhalten, wenn der Button gedrückt wird:')}
+									className={'autoWidth'}
+									value={behavior}
+									onChange={(selection) => { setAttributes({ behavior: selection }) }}
+									options={[
+										{ value: 'newTab', label: 'Seite in neuem Tab öffnen' },
+										{ value: 'currentTab', label: 'Seite im aktuellen Tab öffnen' },
+									]}
+								/>
+							</PanelBody>
+						}
+
 					</InspectorControls>
 				</div>
 			</Fragment>

@@ -4,7 +4,13 @@
  * CSS for just Backend enqueued after style.scss
  * which makes it higher in priority.
  */
- 
- .ktf2021-blocks-button-container {
-    display: inline-block;
+
+.ktf2021-blocks-button-container {
+  display: inline-block;
+}
+
+.editor-url-input {
+  input[type="text"] {
+    width: 100%!important;
+  }
 }
