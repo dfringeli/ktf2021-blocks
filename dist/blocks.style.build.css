@@ -1303,7 +1303,20 @@
       width: 100%;
       background-size: cover;
       background-repeat: no-repeat;
-      background-position: 50% 50%; }
+      background-position: 50% 50%;
+      transform: perspective(0) translateZ(0);
+      -webkit-transform: perspective(0) translateZ(0);
+      transform-style: preserve-3d;
+      -webkit-transform-style: preserve-3d;
+      transition: -webkit-transform 0.5s;
+      -webkit-transition: -webkit-transform 0.5s;
+      -o-transition: transform 0.5s;
+      transition: transform 0.5s;
+      transition: transform 0.5s, -webkit-transform 0.5s;
+      will-change: transform; }
+    .ktf2021-post .ktf2021-post-image-link .ktf2021-post-image:hover {
+      -webkit-transform: perspective(700px) translateZ(10px);
+      transform: perspective(700px) translateZ(10px); }
   .ktf2021-post .ktf2021-post-title {
     margin-bottom: 0; }
     .ktf2021-post .ktf2021-post-title a {
