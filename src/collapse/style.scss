@@ -67,5 +67,15 @@
       background-color: $color__black_hover;
       color: $color__white;
     }
+  
+    &.white {
+      background-color: $color__white;
+      color: $color__black;
+    }
+  
+    &.white:hover {
+      background-color: $color__gray_light;
+      color: $color__black;
+    }
   }
   

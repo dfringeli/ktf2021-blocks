@@ -2464,3 +2464,9 @@
   .ktf2021-button.black:hover {
     background-color: #2f3030;
     color: white; }
+  .ktf2021-button.white {
+    background-color: white;
+    color: black; }
+  .ktf2021-button.white:hover {
+    background-color: silver;
+    color: black; }
