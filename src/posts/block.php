@@ -8,15 +8,12 @@
  */
 function ktf2021_blocks_render_block_core_latest_posts( $attributes ) {
 
-	$categories = isset( $attributes['categories'] ) ? $attributes['categories'] : '';
-
 	$recent_posts = wp_get_recent_posts( array(
 		'numberposts' => $attributes['postsToShow'],
 		'post_status' => 'publish',
 		'post_type' => array('post', 'message'),
 		'order' => $attributes['order'],
 		'orderby' => $attributes['orderBy'],
-		'category' => $categories,
 	), 'OBJECT' );
 
 	$glide_items_markup = '';
@@ -230,9 +227,6 @@ function ktf2021_blocks_register_block_core_latest_posts() {
 			'fadeIn' => array(
 				'type' => 'boolean',
 				'default' => 'true'
-			),
-			'categories' => array(
-				'type' => 'string',
 			),
 			'className' => array(
 				'type' => 'string',

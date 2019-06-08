@@ -93,8 +93,8 @@ class LatestPostsBlock extends Component {
 	}
 
 	render() {
-		const { attributes, categoriesList, setAttributes, latestPosts } = this.props;
-		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, categories, postsToShow, readMoreText, displayNewsArchiveButton, newsArchiveButtonText } = attributes;
+		const { attributes, setAttributes, latestPosts } = this.props;
+		const { title, color, fadeIn, displayPostDate, displayPostExcerpt, displayPostAuthor, displayPostImage, displayPostLink, order, orderBy, postsToShow, readMoreText, displayNewsArchiveButton, newsArchiveButtonText } = attributes;
 
 		const colors = [
 			{ name: 'Schwarz', color: 'black' },
@@ -118,16 +118,6 @@ class LatestPostsBlock extends Component {
 					/>
 				</PanelBody>
 				<PanelBody title={__('Posts Settings')}>
-					<QueryControls
-						{...{ order, orderBy }}
-						numberOfItems={postsToShow}
-						categoriesList={categoriesList}
-						selectedCategoryId={categories}
-						onOrderChange={(value) => setAttributes({ order: value })}
-						onOrderByChange={(value) => setAttributes({ orderBy: value })}
-						onCategoryChange={(value) => setAttributes({ categories: '' !== value ? value : undefined })}
-						onNumberOfItemsChange={(value) => setAttributes({ postsToShow: value })}
-					/>
 					<ToggleControl
 						label={__('Display Featured Image')}
 						checked={displayPostImage}
@@ -288,19 +278,14 @@ class LatestPostsBlock extends Component {
 }
 
 export default withSelect((select, props) => {
-	const { postsToShow, order, orderBy, categories } = props.attributes;
+	const { postsToShow, order, orderBy } = props.attributes;
 	const { getEntityRecords } = select('core');
 	const latestPostsQuery = pickBy({
-		categories,
 		order,
 		orderby: orderBy,
 		per_page: postsToShow,
 	}, (value) => !isUndefined(value));
-	const categoriesListQuery = {
-		per_page: 100,
-	};
 	return {
-		latestPosts: getEntityRecords('postType', 'post', latestPostsQuery),
-		categoriesList: getEntityRecords('taxonomy', 'category', categoriesListQuery),
+		latestPosts: getEntityRecords('postType', 'post', latestPostsQuery)
 	};
 })(LatestPostsBlock);
