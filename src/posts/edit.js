@@ -301,6 +301,6 @@ export default withSelect((select, props) => {
 	};
 	return {
 		latestPosts: getEntityRecords('postType', 'post', latestPostsQuery),
-		categoriesList: [],
+		categoriesList: getEntityRecords('taxonomy', 'category', categoriesListQuery),
 	};
 })(LatestPostsBlock);
