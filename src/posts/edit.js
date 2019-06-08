@@ -194,28 +194,30 @@ class LatestPostsBlock extends Component {
 			</InspectorControls>
 		);
 
+		const noPosts = (
+			<Fragment>
+				{inspectorControls}
+				<RichText
+					tagName={'h2'}
+					value={title}
+					onChange={(value) => setAttributes({ title: value })}
+					placeholder={"Titel..."}
+				/>
+				<Placeholder
+					icon="admin-post"
+					label={__('KTF2021 Posts')}
+				>
+					{!Array.isArray(latestPosts) ?
+						<Spinner /> :
+						__('Keine Beiträge gefunden.')
+					}
+				</Placeholder>
+			</Fragment>
+		);
+
 		const hasPosts = Array.isArray(latestPosts) && latestPosts.length;
 		if (!hasPosts) {
-			return (
-				<Fragment>
-					{inspectorControls}
-					<RichText
-						tagName={'h2'}
-						value={title}
-						onChange={(value) => setAttributes({ title: value })}
-						placeholder={"Titel..."}
-					/>
-					<Placeholder
-						icon="admin-post"
-						label={__('KTF2021 Posts')}
-					>
-						{!Array.isArray(latestPosts) ?
-							<Spinner /> :
-							__('Keine Beiträge gefunden.')
-						}
-					</Placeholder>
-				</Fragment>
-			);
+			return noPosts;
 		}
 		else {
 
@@ -224,58 +226,63 @@ class LatestPostsBlock extends Component {
 				latestPosts.slice(0, postsToShow) :
 				latestPosts;
 
-			const editorBlockClassNames = classnames("ktf2021-container-" + color);
+			if (displayPosts && Array.isArray(displayPosts)) {
+				return noPosts;
+			} else {
 
-			return (
-				<Fragment>
-					{inspectorControls}
-					<div className={editorBlockClassNames}>
-						<RichText
-							tagName={'h2'}
-							value={title}
-							onChange={(value) => setAttributes({ title: value })}
-							placeholder={"Titel..."}
-						/>
-						<div className={classnames(this.props.className, "d-flex justify-content-center flex-wrap")}>
-							{displayPosts.map((post, i) =>
-								<div key={i} className="ktf2021-post d-flex flex-column flex-fill">
-									{
-										displayPostImage && post.featured_image_src &&
-										<div className="ktf2021-post-image">
-											<img src={post.featured_image_src} />
+				const editorBlockClassNames = classnames("ktf2021-container-" + color);
+
+				return (
+					<Fragment>
+						{inspectorControls}
+						<div className={editorBlockClassNames}>
+							<RichText
+								tagName={'h2'}
+								value={title}
+								onChange={(value) => setAttributes({ title: value })}
+								placeholder={"Titel..."}
+							/>
+							<div className={classnames(this.props.className, "d-flex justify-content-center flex-wrap")}>
+								{displayPosts.map((post, i) =>
+									<div key={i} className="ktf2021-post d-flex flex-column flex-fill">
+										{
+											displayPostImage && post.featured_image_src &&
+											<div className="ktf2021-post-image">
+												<img src={post.featured_image_src} />
+											</div>
+										}
+										<h3 className="ktf2021-post-title">
+											<span>{decodeEntities(post.title.rendered.trim())}</span>
+										</h3>
+										<div className="ktf2021-post-byline d-flex justify-content-between">
+											{
+												displayPostDate && post.date_gmt &&
+												<time dateTime={moment(post.date_gmt).utc().format()}>
+													{moment(post.date_gmt).local().format('MMMM DD, Y')}
+												</time>
+											}
+											{
+												displayPostAuthor && post.author_info.display_name &&
+												<div className="ktf2021-post-author">{post.author_info.display_name}</div>
+											}
 										</div>
-									}
-									<h3 className="ktf2021-post-title">
-										<span>{decodeEntities(post.title.rendered.trim())}</span>
-									</h3>
-									<div className="ktf2021-post-byline d-flex justify-content-between">
+										<div className="ktf2021-post-excerpt">
+											{
+												displayPostExcerpt && post.excerpt &&
+												<div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
+											}
+										</div>
 										{
-											displayPostDate && post.date_gmt &&
-											<time dateTime={moment(post.date_gmt).utc().format()}>
-												{moment(post.date_gmt).local().format('MMMM DD, Y')}
-											</time>
-										}
-										{
-											displayPostAuthor && post.author_info.display_name &&
-											<div className="ktf2021-post-author">{post.author_info.display_name}</div>
+											displayPostLink && readMoreText &&
+											<div className="flex-fill d-flex justify-content-end"><span className="ktf2021-post-link">{readMoreText}</span></div>
 										}
 									</div>
-									<div className="ktf2021-post-excerpt">
-										{
-											displayPostExcerpt && post.excerpt &&
-											<div dangerouslySetInnerHTML={{ __html: post.excerpt.rendered }} />
-										}
-									</div>
-									{
-										displayPostLink && readMoreText &&
-										<div className="flex-fill d-flex justify-content-end"><span className="ktf2021-post-link">{readMoreText}</span></div>
-									}
-								</div>
-							)}
+								)}
+							</div>
 						</div>
-					</div>
-				</Fragment>
-			);
+					</Fragment>
+				);
+			}
 		}
 	}
 }
