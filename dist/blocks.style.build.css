@@ -1297,7 +1297,8 @@
   min-width: 250px;
   max-width: 29%; }
   .ktf2021-post .ktf2021-post-image-link {
-    margin-bottom: 15px; }
+    margin-bottom: 15px;
+    overflow: hidden; }
     .ktf2021-post .ktf2021-post-image-link .ktf2021-post-image {
       height: 150px;
       width: 100%;
