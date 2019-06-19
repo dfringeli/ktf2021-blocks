@@ -43,13 +43,13 @@
       color: $color__white;
 
       &[aria-expanded=true] {
-          background-color: $color__blue;
-          color: $color__white;
+          background-color: $color__blue!important;
+          color: $color__white!important;
       }
 
       &[aria-expanded=true]:hover {
-          background-color: $color__blue_hover;
-          color: $color__white;
+          background-color: $color__blue_hover!important;
+          color: $color__white!important;
       }
     }
   

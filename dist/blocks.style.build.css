@@ -2450,11 +2450,11 @@
     background-color: #a3d01e;
     color: white; }
     .ktf2021-button.green[aria-expanded=true] {
-      background-color: #00cfff;
-      color: white; }
+      background-color: #00cfff !important;
+      color: white !important; }
     .ktf2021-button.green[aria-expanded=true]:hover {
-      background-color: #3ca6cd;
-      color: white; }
+      background-color: #3ca6cd !important;
+      color: white !important; }
   .ktf2021-button.green:hover {
     background-color: #8faf1c;
     color: white; }
