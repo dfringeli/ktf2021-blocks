@@ -19,3 +19,4 @@ import './spacer/block.js';
 import './slider/block.js';
 import './social/block.js';
 import './collapse/block.js';
+import './wallpaper/block.js';

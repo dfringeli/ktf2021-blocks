@@ -1,0 +1,14 @@
+.ktf2021-wallpaper-image-container {
+  position: relative;
+  overflow: hidden;
+  width: 100%;
+
+  .ktf2021-wallpaper-image {
+    top: 50%;
+    left: 50%;
+    position: relative;
+    transform: translate(-50%, -50%);
+    -webkit-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+  }
+}
