@@ -12,3 +12,9 @@
     -ms-transform: translate(-50%, -50%);
   }
 }
+
+@media (max-width: $size__md) {
+  .ktf2021-wallpaper-image-container {
+    height: 200px!important;
+  }
+}

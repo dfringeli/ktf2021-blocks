@@ -14,7 +14,8 @@ const { registerBlockType } = wp.blocks;
 const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.editor;
 const {
 	PanelBody,
-	BaseControl
+	BaseControl,
+	ToggleControl
 } = wp.components;
 
 const { Fragment } = wp.element;
@@ -53,6 +54,10 @@ registerBlockType('ktf2021/ktf2021-wallpaper', {
 		height: {
 			type: 'number',
 			default: 300,
+		},
+		fadeIn: {
+			type: 'boolean',
+			default: true
 		}
 	},
 
@@ -65,7 +70,7 @@ registerBlockType('ktf2021/ktf2021-wallpaper', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function (props) {
-		const { attributes: { imageSrc, height }, setAttributes, className } = props;
+		const { attributes: { imageSrc, height, fadeIn }, setAttributes, className } = props;
 
 		return (
 			<Fragment>
@@ -92,7 +97,7 @@ registerBlockType('ktf2021/ktf2021-wallpaper', {
 								/>
 							</MediaUploadCheck>
 						</BaseControl>
-						<BaseControl label={__('Höhe in Pixels')}>
+						<BaseControl label={__('Weitere Einstellungen')}>
 							<input
 								type="number"
 								onChange={(event) => {
@@ -105,10 +110,16 @@ registerBlockType('ktf2021/ktf2021-wallpaper', {
 								step="10"
 							/>
 						</BaseControl>
+						<ToggleControl
+							checked={fadeIn}
+							onChange={(value) => setAttributes({ fadeIn: value })}
+							label={"fade in effect"}
+						/>
 						<BaseControl>
 							<b>Info</b>
 							<p>Das Bild wird nie verzogen sein, sondern immer mittig gezoomt</p>
 							<p>Achte darauf, dass die Höhe des Wallpapers nicht die Höhe des Bildes überschreitet</p>
+							<p>Auf der mobile Ansicht, hat dann jedes Bild eine Höhe von 200px</p>
 						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
@@ -125,10 +136,11 @@ registerBlockType('ktf2021/ktf2021-wallpaper', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: function (props) {
-		const { attributes: { imageSrc, height } } = props;
+		const { attributes: { imageSrc, height, fadeIn } } = props;
+		const reveal = fadeIn ? ' ktf2021-reveal' : '';
 		return (
 			<div className={"ktf2021-container-white"}>
-				<div className={'ktf201-content-fullwidth ktf2021-wallpaper-image-container ktf2021-reveal p-0'} style={{ height: height }} >
+				<div className={'ktf201-content-fullwidth ktf2021-wallpaper-image-container p-0' + reveal } style={{ height: height }} >
 					<img className={'ktf2021-wallpaper-image'} src={imageSrc} />
 				</div>
 			</div>
