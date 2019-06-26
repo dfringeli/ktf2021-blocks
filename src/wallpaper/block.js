@@ -139,7 +139,7 @@ registerBlockType('ktf2021/ktf2021-wallpaper', {
 		const { attributes: { imageSrc, height, fadeIn } } = props;
 		const reveal = fadeIn ? ' ktf2021-reveal' : '';
 		return (
-			<div className={"ktf2021-container-white"}>
+			<div className={"ktf2021-container-white p-0"}>
 				<div className={'ktf201-content-fullwidth ktf2021-wallpaper-image-container p-0' + reveal } style={{ height: height }} >
 					<img className={'ktf2021-wallpaper-image'} src={imageSrc} />
 				</div>
