@@ -12,6 +12,7 @@
   color: $color__black;
   min-width: 250px;
   max-width: 29%;
+  flex: 1 1; // Safari fix
 
   .ktf2021-post-image-link {
     margin-bottom: 15px;
@@ -23,7 +24,6 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 50% 50%;
-      flex: 1 1; // Safari fix
 
       transform: perspective(0) translateZ(0);
       -webkit-transform: perspective(0) translateZ(0);
