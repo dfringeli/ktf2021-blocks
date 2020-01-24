@@ -23,6 +23,7 @@
       background-size: cover;
       background-repeat: no-repeat;
       background-position: 50% 50%;
+      flex: 1 1; // Safari fix
 
       transform: perspective(0) translateZ(0);
       -webkit-transform: perspective(0) translateZ(0);
