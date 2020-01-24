@@ -12,6 +12,7 @@
   color: $color__black;
   min-width: 250px;
   max-width: 29%;
+  flex: 1 1; // Safari fix
 
   .ktf2021-post-image-link {
     margin-bottom: 15px;
