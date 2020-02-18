@@ -1,0 +1,32 @@
+name: CI
+
+on: [push]
+
+jobs:
+  build:
+
+    runs-on: ubuntu-latest
+
+    steps:
+    - uses: actions/checkout@v2
+    - name: Run a one-line script
+      run: echo Hello, world!
+    - name: Run npm run build
+      run: npm run build
+      
+  deploy:
+    
+    runs-on: ubuntu-latest
+    
+    steps:
+      - name: FTP Deploy
+        uses: SamKirkland/FTP-Deploy-Action@3.0.0
+        with:
+          # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
+          ftp-server: ftp://s084.cyon.net:21/wp-content/plugins/ktf2021-blocks/dist/
+          # FTP account username
+          ftp-username: ktf21.ci@ktf21.ch
+          # FTP account password
+          ftp-password: ${{ secrets.ftppassword }}
+          # The local folder to copy, defaults to root project folder
+          local-dir: ./dist
