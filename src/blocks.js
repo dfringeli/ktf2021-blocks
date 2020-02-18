@@ -14,6 +14,7 @@ import './button/block.js';
 import './text/block.js';
 import './columns/column.js';
 import './columns/block.js';
+import './countdown/block.js';
 import './posts/block.js';
 import './spacer/block.js';
 import './slider/block.js';
