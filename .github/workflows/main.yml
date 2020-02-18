@@ -4,7 +4,6 @@ on: [push]
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
 
     steps:
@@ -15,7 +14,7 @@ jobs:
       run: npm run build
       
   deploy:
-    
+    needs: [build]    
     runs-on: ubuntu-latest
     
     steps:
@@ -29,4 +28,4 @@ jobs:
           # FTP account password
           ftp-password: ${{ secrets.ftppassword }}
           # The local folder to copy, defaults to root project folder
-          local-dir: ./dist
+          local-dir: /dist
