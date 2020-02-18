@@ -41,7 +41,7 @@ const { Fragment } = wp.element;
  */
 registerBlockType('ktf2021/ktf2021-countdown', {
 	title: __('KTF 2021 Count Down'),
-	icon: 'welcome-widgets-menus',
+	icon: 'clock',
 	category: 'ktf2021-blocks',
 	keywords: [
 		__('count down'),
