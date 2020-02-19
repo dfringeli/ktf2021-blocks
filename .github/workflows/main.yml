@@ -22,7 +22,7 @@ jobs:
         uses: SamKirkland/FTP-Deploy-Action@3.0.0
         with:
           # Deployment destination server & path. Formatted as protocol://domain.com:port/full/destination/path/
-          ftp-server: ftp://s084.cyon.net:21/temp/
+          ftp-server: ftp://s084.cyon.net:21/temptest/
           # FTP account username
           ftp-username: ktf21.ci@ktf21.ch
           # FTP account password
