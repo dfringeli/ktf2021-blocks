@@ -105,7 +105,7 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 
 		// Get today's date and time
 		var now = new Date().getTime();
-        var countDownDate = new Date(targetDate).getTime();
+		var countDownDate = new Date(targetDate).getTime();
 
 		// Find the distance between now and the count down date
 		var distance = countDownDate - now;
@@ -155,7 +155,9 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 							<span className={classnames('text-center')}>Sekundä</span>
 						</div>
 					</div>
-					<img className={classnames('ktf2021-countdown-image')} src={imageSrc} />
+					<div className={classnames('d-flex justify-content-center')}>
+						<img className={classnames('ktf2021-countdown-image')} src={imageSrc} />
+					</div>
 				</div>
 				<InspectorControls>
 					<PanelBody>
@@ -252,7 +254,9 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 						</div>
 					</div>
 					<ScriptTag type="text/javascript" src="./wp-content/plugins/ktf2021-blocks/src/countdown/countdown.js" />
-					<img className={classnames('ktf2021-countdown-image', 'd-none')} src={imageSrc} />
+					<div className={classnames('d-flex justify-content-center')}>
+						<img className={classnames('ktf2021-countdown-image', 'd-none')} src={imageSrc} />
+					</div>
 				</div>
 			</div >
 		);
