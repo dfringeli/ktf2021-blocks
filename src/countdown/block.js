@@ -15,11 +15,10 @@ import ScriptTag from 'react-script-tag';
 
 const { __ } = wp.i18n;
 const { registerBlockType } = wp.blocks;
-const { InspectorControls, RichText, ColorPalette, MediaUpload, MediaUploadCheck } = wp.editor;
+const { InspectorControls, RichText, ColorPalette } = wp.editor;
 const {
 	PanelBody,
 	BaseControl,
-	TextControl,
 	DateTimePicker,
 	ToggleControl,
 } = wp.components;
@@ -60,13 +59,6 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 			type: 'string',
 			default: '2021-06-18T14:00:00'
 		},
-		imageSrc: {
-			type: 'string',
-			source: 'attribute',
-			selector: 'img',
-			attribute: 'src',
-			default: '',
-		},
 		color: {
 			type: 'string',
 			default: 'white'
@@ -86,7 +78,7 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	edit: function (props) {
-		const { attributes: { title, targetDate, imageSrc, color, fadeIn }, setAttributes, className } = props;
+		const { attributes: { title, targetDate, color, fadeIn }, setAttributes, className } = props;
 
 		const colors = [
 			{ name: 'Weiss', color: 'white' },
@@ -136,27 +128,24 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 					/>
 					<div id="ktf2021-countdown" className={classnames('d-flex', 'justify-content-center')} data-datetime={targetDate}>
 						<div className={classnames('d-flex', 'flex-column', 'p-2')}>
-							<h2 className={classnames('ktf2021-countdown-days', 'text-center', 'm-0')}>{days}</h2>
+							<h2 className={classnames('ktf2021-countdown-days', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}>{days}</h2>
 							<span className={classnames('text-center')}>Täg</span>
 						</div>
-						<h2 className={classnames('m-0', 'pt-1')}>:</h2>
+						<h2 className={classnames('m-0', 'pt-1', 'ktf2021-countdown-fontsize')}>:</h2>
 						<div className={classnames('d-flex flex-column p-2')}>
-							<h2 className={classnames('ktf2021-countdown-hours', 'text-center', 'm-0')}>{hours}</h2>
+							<h2 className={classnames('ktf2021-countdown-hours', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}>{hours}</h2>
 							<span className={classnames('text-center')}>Stundä</span>
 						</div>
-						<h2 className={classnames('m-0', 'pt-1')}>:</h2>
+						<h2 className={classnames('m-0', 'pt-1', 'ktf2021-countdown-fontsize')}>:</h2>
 						<div className={classnames('d-flex flex-column p-2')}>
-							<h2 className={classnames('ktf2021-countdown-minutes', 'text-center', 'm-0')}>{minutes}</h2>
+							<h2 className={classnames('ktf2021-countdown-minutes', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}>{minutes}</h2>
 							<span className={classnames('text-center')}>Minutä</span>
 						</div>
-						<h2 className={classnames('m-0', 'pt-1')}>:</h2>
+						<h2 className={classnames('m-0', 'pt-1', 'ktf2021-countdown-fontsize')}>:</h2>
 						<div className={classnames('d-flex flex-column p-2')}>
-							<h2 className={classnames('ktf2021-countdown-seconds', 'text-center', 'm-0')}>{seconds}</h2>
+							<h2 className={classnames('ktf2021-countdown-seconds', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}>{seconds}</h2>
 							<span className={classnames('text-center')}>Sekundä</span>
 						</div>
-					</div>
-					<div className={classnames('d-flex justify-content-center')}>
-						<img className={classnames('ktf2021-countdown-image')} src={imageSrc} />
 					</div>
 				</div>
 				<InspectorControls>
@@ -165,30 +154,6 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 						<DateTimePicker
 							currentDate={targetDate}
 							onChange={(value) => setAttributes({ targetDate: value })} />
-						<hr style={{ marginTop: '2.5em' }} />
-						<h4>Bild</h4>
-						<p>Dieses wird angezeigt, wenn der Count Down abgelaufen ist.</p>
-						<MediaUploadCheck>
-							<MediaUpload
-								onSelect={(media) => setAttributes({ imageSrc: media.url })}
-								type="image"
-								value={imageSrc}
-								render={({ open }) => {
-									if (imageSrc) {
-										return (<div>
-											<button className={'btn btn-secondary my-3'} onClick={open}>Bild ändern</button>
-											<div className={'ktf2021-slide-image-container'}>
-												<img className={'ktf2021-slide-image'} src={imageSrc} />
-											</div>
-										</div>);
-									} else {
-										return (<div className={'ktf2021-slide-image-container'}>
-											<button className={'btn btn-secondary'} onClick={open}>Bild auswählen</button>
-										</div>);
-									}
-								}}
-							/>
-						</MediaUploadCheck>
 						<hr style={{ marginTop: '2.5em' }} />
 						<h4>Farbe</h4>
 						<ColorPalette
@@ -224,7 +189,7 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 	 * @link https://wordpress.org/gutenberg/handbook/block-api/block-edit-save/
 	 */
 	save: function (props) {
-		const { attributes: { title, targetDate, imageSrc, color, fadeIn }, className } = props;
+		const { attributes: { title, targetDate, color, fadeIn }, className } = props;
 
 		const titleRender = title != '' ? <RichText.Content className="text-center" tagName="h2" value={title} /> : null;
 
@@ -234,29 +199,26 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 					{titleRender}
 					<div id="ktf2021-countdown" className={classnames('d-none', 'justify-content-center')} data-datetime={targetDate}>
 						<div className={classnames('d-flex', 'flex-column', 'p-2')}>
-							<h2 className={classnames('ktf2021-countdown-days', 'text-center', 'm-0')}></h2>
+							<h2 className={classnames('ktf2021-countdown-days', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}></h2>
 							<span className={classnames('text-center')}>Täg</span>
 						</div>
-						<h2 className={classnames('m-0', 'pt-1')}>:</h2>
+						<h2 className={classnames('m-0', 'pt-1', 'ktf2021-countdown-fontsize')}>:</h2>
 						<div className={classnames('d-flex flex-column p-2')}>
-							<h2 className={classnames('ktf2021-countdown-hours', 'text-center', 'm-0')}></h2>
+							<h2 className={classnames('ktf2021-countdown-hours', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}></h2>
 							<span className={classnames('text-center')}>Stundä</span>
 						</div>
-						<h2 className={classnames('m-0', 'pt-1')}>:</h2>
+						<h2 className={classnames('m-0', 'pt-1', 'ktf2021-countdown-fontsize')}>:</h2>
 						<div className={classnames('d-flex flex-column p-2')}>
-							<h2 className={classnames('ktf2021-countdown-minutes', 'text-center', 'm-0')}></h2>
+							<h2 className={classnames('ktf2021-countdown-minutes', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}></h2>
 							<span className={classnames('text-center')}>Minutä</span>
 						</div>
-						<h2 className={classnames('m-0', 'pt-1')}>:</h2>
+						<h2 className={classnames('m-0', 'pt-1', 'ktf2021-countdown-fontsize')}>:</h2>
 						<div className={classnames('d-flex flex-column p-2')}>
-							<h2 className={classnames('ktf2021-countdown-seconds', 'text-center', 'm-0')}></h2>
+							<h2 className={classnames('ktf2021-countdown-seconds', 'text-center', 'm-0', 'ktf2021-countdown-fontsize')}></h2>
 							<span className={classnames('text-center')}>Sekundä</span>
 						</div>
 					</div>
 					<ScriptTag type="text/javascript" src="./wp-content/plugins/ktf2021-blocks/src/countdown/countdown.js" />
-					<div className={classnames('d-flex justify-content-center')}>
-						<img className={classnames('ktf2021-countdown-image', 'd-none')} src={imageSrc} />
-					</div>
 				</div>
 			</div >
 		);

@@ -3,10 +3,6 @@ jQuery(document).ready(function () {
     if (ktf2021CountDown) {
         var targetDate = ktf2021CountDown.getAttribute("data-datetime");
         var countDownDate = new Date(targetDate).getTime();
-        var daysElements = document.getElementsByClassName("ktf2021-countdown-days");
-        var hoursElements = document.getElementsByClassName("ktf2021-countdown-hours");
-        var minutesElements = document.getElementsByClassName("ktf2021-countdown-minutes");
-        var secondsElements = document.getElementsByClassName("ktf2021-countdown-seconds");
 
         // Get today's date and time
         var now = new Date().getTime();
@@ -14,11 +10,13 @@ jQuery(document).ready(function () {
         // Find the distance between now and the count down date
         var distance = countDownDate - now;
 
-        ktf2021CountDown.classList.remove("d-none");
-        ktf2021CountDown.classList.add("d-flex");
-
         // Set the date we're counting down to
         if (countDownDate - new Date().getTime() > 0) {
+
+            var daysElements = document.getElementsByClassName("ktf2021-countdown-days");
+            var hoursElements = document.getElementsByClassName("ktf2021-countdown-hours");
+            var minutesElements = document.getElementsByClassName("ktf2021-countdown-minutes");
+            var secondsElements = document.getElementsByClassName("ktf2021-countdown-seconds");
 
             // Time calculations for days, hours, minutes and seconds
             var days = Math.floor(distance / (1000 * 60 * 60 * 24));
@@ -31,6 +29,9 @@ jQuery(document).ready(function () {
             hoursElements[0].innerHTML = hours;
             minutesElements[0].innerHTML = minutes;
             secondsElements[0].innerHTML = seconds;
+            
+            ktf2021CountDown.classList.remove("d-none");
+            ktf2021CountDown.classList.add("d-flex");
 
             // Update the count down every 1 second
             var x = setInterval(function () {
@@ -46,13 +47,13 @@ jQuery(document).ready(function () {
                 var minutes = Math.floor((distance % (1000 * 60 * 60)) / (1000 * 60));
                 var seconds = Math.floor((distance % (1000 * 60)) / 1000);
 
-                // Display the result in the element with id="demo"
+                // Display the result in the element
                 daysElements[0].innerHTML = days;
                 hoursElements[0].innerHTML = hours;
                 minutesElements[0].innerHTML = minutes;
                 secondsElements[0].innerHTML = seconds;
 
-                // If the count down is finished, write some text
+                // If the count down is finished, execute expired function
                 if (distance < 0) {
                     clearInterval(x);
                     countdownExpired();
@@ -65,17 +66,8 @@ jQuery(document).ready(function () {
 });
 
 function countdownExpired() {
-    var countdownImages = document.getElementsByClassName("ktf2021-countdown-image");
-    console.log(countdownImages);
-    if (countdownImages && countdownImages.length === 1) {
-        var daysElements = document.getElementsByClassName("ktf2021-countdown-days");
-        var hoursElements = document.getElementsByClassName("ktf2021-countdown-hours");
-        var minutesElements = document.getElementsByClassName("ktf2021-countdown-minutes");
-        var secondsElements = document.getElementsByClassName("ktf2021-countdown-seconds");
-        daysElements[0].innerHTML = 0;
-        hoursElements[0].innerHTML = 0;
-        minutesElements[0].innerHTML = 0;
-        secondsElements[0].innerHTML = 0;
-        countdownImages[0].classList.remove("d-none");
+    var countdowns = document.getElementsByClassName("wp-block-ktf2021-ktf2021-countdown");
+    if (countdowns && countdowns.length === 1) {
+        countdowns[0].classList.add("d-none");
     }
 }
