@@ -169,10 +169,9 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 							<b>Info</b>
 							<p>Der Count Down zählt live die verbleibende Zeit bis zum KTF21.</p>
 							<p>Das angezeigte Format ist: Tage, Stunden, Minuten, Sekunden.</p>
-							<p>Ist der Count Down abgelaufen, so wird das Bild unterhalb des Count Downs angezeigt.</p>
+							<p>Ist der Count Down abgelaufen, so verschwindet er.</p>
 							<p>Hier im Bearbeitungsmodus ändert der Count Down sporadisch, wenn man am Block eine Änderung vornimmt. Auf der richtigen Website ändert der Count Down jede Sekunde, wie erwartet.</p>
 							<p>Der Titel ist optional und ist standardmässig "Es goht nume noh.."</p>
-							<p>Hier im Bearbeitungsmodus wird das Bild immer angezeigt. Auf der richtigen Website erst, wenn der Count Down abgelaufen ist.</p>
 						</BaseControl>
 					</PanelBody>
 				</InspectorControls>
