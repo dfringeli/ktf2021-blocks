@@ -217,7 +217,7 @@ registerBlockType('ktf2021/ktf2021-countdown', {
 							<span className={classnames('text-center')}>Sekundä</span>
 						</div>
 					</div>
-					<ScriptTag type="text/javascript" src="./wp-content/plugins/ktf2021-blocks/src/countdown/countdown.js" />
+					<ScriptTag type="text/javascript" src="https://ktf21.ch/wp-content/plugins/ktf2021-blocks/src/countdown/countdown.js" />
 				</div>
 			</div >
 		);
