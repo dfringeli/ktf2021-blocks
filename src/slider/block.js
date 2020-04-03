@@ -23,7 +23,8 @@ const { InspectorControls, MediaUpload, MediaUploadCheck } = wp.editor;
 
 const {
 	BaseControl,
-	PanelBody } = wp.components;
+	PanelBody,
+	TextControl } = wp.components;
 
 // Register the block
 registerBlockType('ktf2021/ktf2021-slider', {
@@ -37,6 +38,10 @@ registerBlockType('ktf2021/ktf2021-slider', {
 		__('bilder')
 	],
 	attributes: {
+		watermarktext: {
+			type: "string",
+			default: "mir sy turnfescht! bisch du's au?"
+		},
 		images: {
 			source: "query",
 			default: [],
@@ -57,7 +62,7 @@ registerBlockType('ktf2021/ktf2021-slider', {
 	},
 
 	edit: function (props) {
-		const { images } = props.attributes;
+		const { images, watermarktext } = props.attributes;
 
 		const sleep = (milliseconds) => {
 			return new Promise(resolve => setTimeout(resolve, milliseconds))
@@ -72,6 +77,12 @@ registerBlockType('ktf2021/ktf2021-slider', {
 
 		const inspectorControls = (
 			<InspectorControls>
+				<PanelBody>
+					<TextControl
+						label={'Text als Wasserzeichen im Bild'}
+						value={watermarktext}
+						onChange={(value) => props.setAttributes({ watermarktext: value })} />
+				</PanelBody>
 				<PanelBody>
 					<BaseControl>
 						<h3>
@@ -89,6 +100,9 @@ registerBlockType('ktf2021/ktf2021-slider', {
 						</p>
 						<p>
 							Nach jeder Interaktion mit dem Slider springt die Ansicht auf das Bild 1 zurück. Benutze die Bullets (die weissen Punkte) für eine schnelle Navigation. Sorry!
+						</p>
+						<p>
+							Es kann ein Wasserzeichen-Text hinterlegt werden. Dieser ist im Editor schwarz, auf der richtigen Website dann aber weiss.
 						</p>
 					</BaseControl>
 				</PanelBody>
@@ -204,6 +218,9 @@ registerBlockType('ktf2021/ktf2021-slider', {
 							<div className={'glide__bullets'} data-glide-el="controls[nav]">
 								{bullets}
 							</div>
+							<div className="ktf2021-slider-watermark ktf2021-content p-5 d-none d-lg-block">
+								<h2 className="m-0">{watermarktext}</h2>
+							</div>
 						</div>
 					</div>
 					<div className={'text-right my-3'}>
@@ -229,7 +246,7 @@ registerBlockType('ktf2021/ktf2021-slider', {
 	},
 
 	save({ attributes }) {
-		const { images } = attributes;
+		const { images, watermarktext } = attributes;
 
 		if (images.length > 0) {
 
@@ -237,8 +254,6 @@ registerBlockType('ktf2021/ktf2021-slider', {
 				var glide = new Glide('.ktf2021-slider', { type: 'carousel', autoplay: 5000, swipeThreshold: false });
 				glide.mount();
 			}
-
-			const glideOptions = { type: 'carousel', autoplay: 5000, swipeThreshold: false };
 
 			const bullets = images.map(function (image, index) {
 				return (
@@ -267,6 +282,9 @@ registerBlockType('ktf2021/ktf2021-slider', {
 							</div>
 							<div className="glide__bullets" data-glide-el="controls[nav]">
 								{bullets}
+							</div>
+							<div className="ktf2021-slider-watermark ktf2021-content p-5 d-none d-lg-block">
+								<h2 className="m-0">{watermarktext}</h2>
 							</div>
 						</div>
 					</div>

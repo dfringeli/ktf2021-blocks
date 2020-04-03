@@ -1,4 +1,6 @@
 .ktf2021-slider {
+  position: relative;
+
   &.glide--swipeable {
     cursor: default;
   }
@@ -38,4 +40,13 @@
       height: 16px;
     }
   }
+
+  .ktf2021-slider-watermark {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+
+    color: $color__white;
+    opacity: 80%;
+  } 
 }
