@@ -296,13 +296,7 @@ registerBlockType('ktf2021/ktf2021-slider', {
 		}
 	},
 	deprecated: [
-		{
-            migrate(attributes) {
-                return {
-                    watermarktext: "mir sy turnfescht! bisch du's au?"
-                };
-			},
-			
+		{			
 			attributes: {
 				images: {
 					source: "query",
