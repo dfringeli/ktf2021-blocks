@@ -218,8 +218,8 @@ registerBlockType('ktf2021/ktf2021-slider', {
 							<div className={'glide__bullets'} data-glide-el="controls[nav]">
 								{bullets}
 							</div>
-							<div className="ktf2021-slider-watermark ktf2021-content p-5 d-none d-lg-block">
-								<h2 className="m-0">{watermarktext}</h2>
+							<div className="ktf2021-slider-watermark p-5 d-none d-lg-block">
+								<h1 className="m-0">{watermarktext}</h1>
 							</div>
 						</div>
 					</div>
@@ -250,11 +250,6 @@ registerBlockType('ktf2021/ktf2021-slider', {
 
 		if (images.length > 0) {
 
-			function mountSlider() {
-				var glide = new Glide('.ktf2021-slider', { type: 'carousel', autoplay: 5000, swipeThreshold: false });
-				glide.mount();
-			}
-
 			const bullets = images.map(function (image, index) {
 				return (
 					<button className={'glide__bullet'} key={image.index} data-glide-dir={'=' + index}></button>
@@ -283,8 +278,8 @@ registerBlockType('ktf2021/ktf2021-slider', {
 							<div className="glide__bullets" data-glide-el="controls[nav]">
 								{bullets}
 							</div>
-							<div className="ktf2021-slider-watermark ktf2021-content p-5 d-none d-lg-block">
-								<h2 className="m-0">{watermarktext}</h2>
+							<div className="ktf2021-slider-watermark p-5 d-none d-lg-block">
+								<h1 className="m-0">{watermarktext}</h1>
 							</div>
 						</div>
 					</div>
@@ -296,7 +291,7 @@ registerBlockType('ktf2021/ktf2021-slider', {
 		}
 	},
 	deprecated: [
-		{			
+		{
 			attributes: {
 				images: {
 					source: "query",
@@ -316,18 +311,18 @@ registerBlockType('ktf2021/ktf2021-slider', {
 					}
 				}
 			},
-		
+
 			save({ attributes }) {
 				const { images } = attributes;
-		
+
 				if (images.length > 0) {
-		
+
 					const bullets = images.map(function (image, index) {
 						return (
 							<button className={'glide__bullet'} key={image.index} data-glide-dir={'=' + index}></button>
 						);
 					});
-		
+
 					const slides = images.map(function (image) {
 						return (
 							<li className={'glide__slide'} key={image.index}>
@@ -337,7 +332,7 @@ registerBlockType('ktf2021/ktf2021-slider', {
 							</li>
 						);
 					});
-		
+
 					return (
 						<div className="ktf2021-container-white p-0">
 							<div className="ktf2021-content-fullwidth p-0">
@@ -358,8 +353,82 @@ registerBlockType('ktf2021/ktf2021-slider', {
 				} else {
 					return null;
 				}
+			}
+		},
+		{
+			attributes: {
+				watermarktext: {
+					type: "string",
+					default: "mir sy turnfescht! bisch du's au?"
+				},
+				images: {
+					source: "query",
+					default: [],
+					selector: "li.glide__slide",
+					query: {
+						imageSrc: {
+							source: "attribute",
+							selector: "img.ktf2021-slide-image",
+							attribute: "src"
+						},
+						index: {
+							source: "attribute",
+							selector: "div.ktf2021-slide-image-container",
+							attribute: "data-index"
+						}
+					}
+				}
 			},
+			save({ attributes }) {
+				const { images, watermarktext } = attributes;
 
-		}
+				if (images.length > 0) {
+
+					function mountSlider() {
+						var glide = new Glide('.ktf2021-slider', { type: 'carousel', autoplay: 5000, swipeThreshold: false });
+						glide.mount();
+					}
+
+					const bullets = images.map(function (image, index) {
+						return (
+							<button className={'glide__bullet'} key={image.index} data-glide-dir={'=' + index}></button>
+						);
+					});
+
+					const slides = images.map(function (image) {
+						return (
+							<li className={'glide__slide'} key={image.index}>
+								<div className={'ktf2021-slide-image-container'} data-index={image.index}>
+									<img className={'ktf2021-slide-image'} src={image.imageSrc} />
+								</div>
+							</li>
+						);
+					});
+
+					return (
+						<div className="ktf2021-container-white p-0">
+							<div className="ktf2021-content-fullwidth p-0">
+								<div className="glide ktf2021-slider">
+									<div className="glide__track" data-glide-el="track">
+										<ul className="glide__slides">
+											{slides}
+										</ul>
+									</div>
+									<div className="glide__bullets" data-glide-el="controls[nav]">
+										{bullets}
+									</div>
+									<div className="ktf2021-slider-watermark ktf2021-content p-5 d-none d-lg-block">
+										<h2 className="m-0">{watermarktext}</h2>
+									</div>
+								</div>
+							</div>
+							<ScriptTag type="text/javascript" src="https://ktf21.ch/wp-content/plugins/ktf2021-blocks/src/slider/mountslider.js" />
+						</div>
+					);
+				} else {
+					return null;
+				}
+			}
+		},
 	]
 });
