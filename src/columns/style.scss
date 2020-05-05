@@ -3,3 +3,24 @@
 		margin: 0;
 	}
 }
+
+.ktf2021-columns-p-0 {
+	[class^="ktf2021-container-"],
+	[class*=" ktf2021-container-"] {
+		padding: 0;
+	}
+}
+
+.ktf2021-columns-pt-0 {
+	[class^="ktf2021-container-"],
+	[class*=" ktf2021-container-"] {
+		padding-top: 0;
+	}
+}
+
+.ktf2021-columns-pb-0 {
+	[class^="ktf2021-container-"],
+	[class*=" ktf2021-container-"] {
+		padding-bottom: 0;
+	}
+}
