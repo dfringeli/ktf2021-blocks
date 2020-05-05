@@ -33,7 +33,7 @@ const settings = {
 	},
 
 	save() {
-		return <div className="flex-fill m-2 w-100"><InnerBlocks.Content /></div>;
+		return <div><div className="flex-fill m-2 w-100"><InnerBlocks.Content /></div></div>;
 	},
 };
 
